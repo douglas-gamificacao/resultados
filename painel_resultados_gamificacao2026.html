@@ -3,355 +3,1003 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Painel de Resultados — Gamificação Total 2026</title>
+<title>Gamificação Total 2026 — Prof. Douglas Sousa</title>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-  :root {
-    --verde: #2d8a4e;
-    --verde-claro: #3db368;
-    --amarelo: #f5c518;
-    --laranja: #e8832a;
-    --azul: #1e6fa8;
-    --roxo: #7c3aed;
-    --fundo: #0f1923;
-    --fundo2: #162030;
-    --card: #1e2d3d;
-    --card2: #243447;
-    --borda: #2e4a63;
-    --texto: #e8f4fd;
-    --texto2: #8fb3cc;
-    --branco: #ffffff;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--fundo);
-    color: var(--texto);
-    min-height: 100vh;
-  }
-  /* HEADER */
-  .header {
-    background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0f2840 100%);
-    padding: 20px 24px 16px;
-    border-bottom: 2px solid var(--amarelo);
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .header-logo {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--amarelo);
-    letter-spacing: 1px;
-    line-height: 1.1;
-  }
-  .header-logo span { color: var(--verde-claro); }
-  .header-sub {
-    font-size: 11px;
-    color: var(--texto2);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-  }
-  .header-badge {
-    margin-left: auto;
-    background: var(--verde);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+:root {
+  --verde: #2d8a4e;
+  --verde-claro: #3db368;
+  --amarelo: #f5c518;
+  --laranja: #e8832a;
+  --azul: #1e6fa8;
+  --azul-claro: #5db8f7;
+  --roxo: #7c3aed;
+  --roxo-claro: #a78bfa;
+  --vermelho: #e24b4a;
+  --fundo: #0f1923;
+  --fundo2: #162030;
+  --card: #1e2d3d;
+  --card2: #243447;
+  --borda: #2e4a63;
+  --texto: #e8f4fd;
+  --texto2: #8fb3cc;
+  --branco: #ffffff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  min-height: 100vh;
+}
 
-  /* FILTROS */
-  .filtros {
-    background: var(--fundo2);
-    padding: 14px 24px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    align-items: center;
-    border-bottom: 1px solid var(--borda);
-  }
-  .filtro-label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--texto2);
-    white-space: nowrap;
-  }
-  select {
-    background: var(--card);
-    color: var(--texto);
-    border: 1px solid var(--borda);
-    border-radius: 8px;
-    padding: 7px 12px;
-    font-size: 13px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  select:hover, select:focus { border-color: var(--amarelo); }
-  .btn-reset {
-    background: transparent;
-    color: var(--texto2);
-    border: 1px solid var(--borda);
-    border-radius: 8px;
-    padding: 7px 14px;
-    font-size: 12px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-left: auto;
-  }
-  .btn-reset:hover { border-color: var(--laranja); color: var(--laranja); }
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0f2840 100%);
+  padding: 20px 24px 16px;
+  border-bottom: 2px solid var(--amarelo);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.header-logo {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--amarelo);
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+.header-logo span { color: var(--verde-claro); }
+.header-sub {
+  font-size: 11px;
+  color: var(--texto2);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.header-badge {
+  margin-left: auto;
+  background: var(--verde);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-  /* CARDS TOPO */
-  .cards-topo {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
-    padding: 20px 24px 0;
-  }
-  .card-num {
-    background: var(--card);
-    border: 1px solid var(--borda);
-    border-radius: 12px;
-    padding: 16px 18px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s;
-  }
-  .card-num:hover { transform: translateY(-2px); }
-  .card-num::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-  }
-  .card-num.verde::before { background: var(--verde-claro); }
-  .card-num.amarelo::before { background: var(--amarelo); }
-  .card-num.laranja::before { background: var(--laranja); }
-  .card-num.azul::before { background: var(--azul); }
-  .card-num.roxo::before { background: var(--roxo); }
-  .card-titulo {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--texto2);
-    margin-bottom: 6px;
-  }
-  .card-valor {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 2px;
-  }
-  .card-num.verde .card-valor { color: var(--verde-claro); }
-  .card-num.amarelo .card-valor { color: var(--amarelo); }
-  .card-num.laranja .card-valor { color: var(--laranja); }
-  .card-num.azul .card-valor { color: #5db8f7; }
-  .card-num.roxo .card-valor { color: #a78bfa; }
-  .card-desc { font-size: 11px; color: var(--texto2); }
+/* ── NAVEGAÇÃO PRINCIPAL ── */
+.nav-principal {
+  background: #0f1923;
+  padding: 20px 24px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-bottom: 1px solid var(--borda);
+}
+.nav-card {
+  border-radius: 16px;
+  padding: 22px 20px;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Nunito', sans-serif;
+  text-align: left;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
 
-  /* GRID GRÁFICOS */
-  .grid-graficos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    padding: 16px 24px;
-  }
-  @media (max-width: 700px) { .grid-graficos { grid-template-columns: 1fr; } }
-  .grafico-card {
-    background: var(--card);
-    border: 1px solid var(--borda);
-    border-radius: 12px;
-    padding: 18px 20px;
-  }
-  .grafico-card.full { grid-column: 1 / -1; }
-  .grafico-titulo {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--texto2);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .grafico-titulo::before {
-    content: '';
-    width: 3px;
-    height: 14px;
-    background: var(--amarelo);
-    border-radius: 2px;
-    display: inline-block;
-  }
-  canvas { max-height: 220px; }
+.nav-card-resultados {
+  background: linear-gradient(145deg, #2a1f00, #1a1300);
+  box-shadow: 0 6px 0 #7a5a00, 0 8px 20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,210,0,0.15);
+}
+.nav-card-resultados:hover {
+  background: linear-gradient(145deg, #fff8dc, #fef3b0);
+  box-shadow: 0 8px 0 #7a5a00, 0 12px 28px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.8);
+  transform: translateY(-2px);
+}
+.nav-card-resultados:hover .nav-card-titulo { color: #7a5a00; }
+.nav-card-resultados:hover .nav-card-sub   { color: #a07820; }
+.nav-card-resultados:hover .nav-card-arrow { color: #7a5a00; opacity: 0.9; transform: translateX(3px); }
+.nav-card-resultados:active,
+.nav-card.ativo-resultados {
+  background: linear-gradient(145deg, #fff8dc, #fef3b0);
+  box-shadow: 0 2px 0 #7a5a00, 0 4px 10px rgba(0,0,0,0.5), inset 0 3px 6px rgba(0,0,0,0.25);
+  transform: translateY(4px);
+}
+.nav-card.ativo-resultados .nav-card-titulo { color: #7a5a00; }
+.nav-card.ativo-resultados .nav-card-sub   { color: #a07820; }
+.nav-card.ativo-resultados .nav-card-arrow { color: #7a5a00; opacity: 0.7; }
 
-  /* TABELA */
-  .tabela-section {
-    padding: 0 24px 24px;
-  }
-  .tabela-card {
-    background: var(--card);
-    border: 1px solid var(--borda);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .tabela-header {
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--borda);
-  }
-  .tabela-titulo {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--texto2);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .tabela-titulo::before {
-    content: '';
-    width: 3px;
-    height: 14px;
-    background: var(--verde-claro);
-    border-radius: 2px;
-    display: inline-block;
-  }
-  .tabela-count {
-    font-size: 11px;
-    color: var(--texto2);
-    background: var(--card2);
-    padding: 3px 10px;
-    border-radius: 10px;
-  }
-  table { width: 100%; border-collapse: collapse; }
-  thead th {
-    background: var(--fundo2);
-    padding: 10px 16px;
-    text-align: left;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--texto2);
-    white-space: nowrap;
-  }
-  tbody tr { border-bottom: 1px solid var(--borda); transition: background 0.15s; }
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: var(--card2); }
-  tbody td {
-    padding: 10px 16px;
-    font-size: 13px;
-    color: var(--texto);
-  }
-  .badge-eixo {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 700;
-  }
-  .badge-Frequência { background: rgba(30,111,168,0.25); color: #5db8f7; }
-  .badge-Desempenho { background: rgba(45,138,78,0.25); color: #3db368; }
-  .badge-Protagonismo { background: rgba(232,131,42,0.25); color: #f5a84a; }
-  .badge-ProtagJuvenil { background: rgba(232,131,42,0.25); color: #f5a84a; }
-  .badge-IC { background: rgba(124,58,237,0.25); color: #a78bfa; }
-  .pontos-cell { font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: var(--amarelo); }
-  .turma-cell { font-size: 12px; color: var(--texto2); }
+.nav-card-metas {
+  background: linear-gradient(145deg, #001a2e, #000f1e);
+  box-shadow: 0 6px 0 #0a3a5c, 0 8px 20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(93,184,247,0.12);
+}
+.nav-card-metas:hover {
+  background: linear-gradient(145deg, #ddf0ff, #bce4ff);
+  box-shadow: 0 8px 0 #0a3a5c, 0 12px 28px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.8);
+  transform: translateY(-2px);
+}
+.nav-card-metas:hover .nav-card-titulo { color: #0a3a5c; }
+.nav-card-metas:hover .nav-card-sub   { color: #1e6fa8; }
+.nav-card-metas:hover .nav-card-arrow { color: #0a3a5c; opacity: 0.9; transform: translateX(3px); }
+.nav-card-metas:active,
+.nav-card.ativo-metas {
+  background: linear-gradient(145deg, #ddf0ff, #bce4ff);
+  box-shadow: 0 2px 0 #0a3a5c, 0 4px 10px rgba(0,0,0,0.5), inset 0 3px 6px rgba(0,0,0,0.2);
+  transform: translateY(4px);
+}
+.nav-card.ativo-metas .nav-card-titulo { color: #0a3a5c; }
+.nav-card.ativo-metas .nav-card-sub   { color: #1e6fa8; }
+.nav-card.ativo-metas .nav-card-arrow { color: #0a3a5c; opacity: 0.7; }
 
-  /* VAZIO */
-  .vazio {
-    text-align: center;
-    padding: 40px;
-    color: var(--texto2);
-    font-size: 14px;
-  }
+.nav-card-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.nav-card-titulo {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 3px;
+  transition: color 0.12s;
+}
+.nav-card-resultados .nav-card-titulo { color: #f5c518; }
+.nav-card-metas .nav-card-titulo      { color: #5db8f7; }
+.nav-card-sub {
+  font-size: 11px;
+  color: var(--texto2);
+  font-weight: 600;
+  line-height: 1.4;
+  transition: color 0.12s;
+}
+.nav-card-arrow {
+  margin-left: auto;
+  font-size: 20px;
+  flex-shrink: 0;
+  opacity: 0.3;
+  transition: opacity 0.15s, transform 0.15s, color 0.12s;
+}
+.nav-card-resultados .nav-card-arrow { color: #f5c518; }
+.nav-card-metas .nav-card-arrow      { color: #5db8f7; }
 
-  /* ATUALIZAÇÃO */
-  .footer {
-    text-align: center;
-    padding: 12px 24px 20px;
-    font-size: 11px;
-    color: var(--texto2);
-  }
+@media (max-width: 520px) {
+  .nav-principal { grid-template-columns: 1fr; gap: 12px; padding: 14px 16px 20px; }
+  .nav-card-icon { font-size: 24px; }
+  .nav-card-titulo { font-size: 14px; }
+}
+
+/* ── SEÇÃO ── */
+.secao { display: none; }
+.secao.ativa { display: block; }
+
+/* ══════════════════════════════
+   PAINEL RESULTADOS
+══════════════════════════════ */
+.filtros {
+  background: var(--fundo2);
+  padding: 14px 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 1px solid var(--borda);
+}
+.filtro-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--texto2);
+  white-space: nowrap;
+}
+select {
+  background: var(--card);
+  color: var(--texto);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+select:hover, select:focus { border-color: var(--amarelo); }
+.btn-reset {
+  background: transparent;
+  color: var(--texto2);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: auto;
+}
+.btn-reset:hover { border-color: var(--laranja); color: var(--laranja); }
+
+.cards-topo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  padding: 20px 24px 0;
+}
+.card-num {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.card-num:hover { transform: translateY(-2px); }
+.card-num::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.card-num.verde::before { background: var(--verde-claro); }
+.card-num.amarelo::before { background: var(--amarelo); }
+.card-num.laranja::before { background: var(--laranja); }
+.card-num.azul::before { background: var(--azul); }
+.card-num.roxo::before { background: var(--roxo); }
+.card-titulo {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--texto2);
+  margin-bottom: 6px;
+}
+.card-valor {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.card-num.verde .card-valor { color: var(--verde-claro); }
+.card-num.amarelo .card-valor { color: var(--amarelo); }
+.card-num.laranja .card-valor { color: var(--laranja); }
+.card-num.azul .card-valor { color: var(--azul-claro); }
+.card-num.roxo .card-valor { color: var(--roxo-claro); }
+.card-desc { font-size: 11px; color: var(--texto2); }
+
+.grid-graficos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px 24px;
+}
+@media (max-width: 700px) { .grid-graficos { grid-template-columns: 1fr; } }
+.grafico-card {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.grafico-card.full { grid-column: 1 / -1; }
+.grafico-titulo {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--texto2);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.grafico-titulo::before {
+  content: '';
+  width: 3px; height: 14px;
+  background: var(--amarelo);
+  border-radius: 2px;
+  display: inline-block;
+}
+canvas { max-height: 220px; }
+
+.tabela-section { padding: 0 24px 24px; }
+.tabela-card {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.tabela-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--borda);
+}
+.tabela-titulo {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--texto2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tabela-titulo::before {
+  content: '';
+  width: 3px; height: 14px;
+  background: var(--verde-claro);
+  border-radius: 2px;
+  display: inline-block;
+}
+.tabela-count {
+  font-size: 11px;
+  color: var(--texto2);
+  background: var(--card2);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+table { width: 100%; border-collapse: collapse; }
+thead th {
+  background: var(--fundo2);
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--texto2);
+  white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid var(--borda); transition: background 0.15s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--card2); }
+tbody td { padding: 10px 16px; font-size: 13px; color: var(--texto); }
+.badge-eixo {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.badge-Frequência { background: rgba(30,111,168,0.25); color: var(--azul-claro); }
+.badge-Desempenho { background: rgba(45,138,78,0.25); color: var(--verde-claro); }
+.badge-Protagonismo { background: rgba(232,131,42,0.25); color: #f5a84a; }
+.badge-IC { background: rgba(124,58,237,0.25); color: var(--roxo-claro); }
+.pontos-cell { font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: var(--amarelo); }
+.turma-cell { font-size: 12px; color: var(--texto2); }
+.vazio { text-align: center; padding: 40px; color: var(--texto2); font-size: 14px; }
+
+/* ══════════════════════════════
+   PAINEL METAS
+══════════════════════════════ */
+.metas-wrap {
+  padding: 20px 24px 24px;
+  max-width: 960px;
+}
+
+/* Barra geral SARESP */
+.geral-bar {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.gb-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.gb-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--texto2);
+}
+.gb-vals { display: flex; gap: 10px; align-items: center; font-size: 13px; }
+.gb-from { color: var(--texto2); }
+.gb-to { font-size: 15px; font-weight: 700; color: var(--amarelo); font-family: 'Rajdhani', sans-serif; }
+.gb-pct { font-size: 12px; color: var(--texto2); }
+.gb-bg { height: 10px; background: var(--fundo2); border-radius: 99px; overflow: hidden; position: relative; }
+.gb-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--azul), var(--verde-claro));
+  transition: width .6s ease;
+}
+
+/* Sub-abas metas */
+.sub-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.sub-tab {
+  padding: 7px 18px;
+  border: 1px solid var(--borda);
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  background: transparent;
+  color: var(--texto2);
+  transition: all .15s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.sub-tab:hover { border-color: var(--texto2); color: var(--texto); }
+.sub-tab.st0.active { background: var(--azul); border-color: var(--azul); color: #fff; }
+.sub-tab.st1.active { background: var(--laranja); border-color: var(--laranja); color: #fff; }
+.sub-tab.st2.active { background: var(--verde); border-color: var(--verde); color: #fff; }
+.sub-tab.st3.active { background: var(--roxo); border-color: var(--roxo); color: #fff; }
+
+.sub-secao { display: none; }
+.sub-secao.ativa { display: block; }
+
+/* Cards métricas metas */
+.mgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.mc {
+  border-radius: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--borda);
+  background: var(--card);
+}
+.mc0 { border-color: rgba(30,111,168,0.4); background: rgba(30,111,168,0.1); }
+.mc1 { border-color: rgba(232,131,42,0.4); background: rgba(232,131,42,0.1); }
+.mc2 { border-color: rgba(45,138,78,0.4); background: rgba(45,138,78,0.1); }
+.mc3 { background: var(--card); }
+.ml { font-size: 10px; color: var(--texto2); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.mv { font-size: 24px; font-weight: 700; color: var(--texto); font-family: 'Rajdhani', sans-serif; }
+.ms { font-size: 11px; color: var(--texto2); margin-top: 2px; }
+
+/* Filtros metas */
+.sw {
+  margin-bottom: 16px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.sw label { font-size: 12px; color: var(--texto2); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Progress blocks turmas */
+.pb {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+}
+.pbh { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.pbl { font-size: 15px; font-weight: 700; color: var(--texto); }
+.pbs { font-size: 11px; color: var(--texto2); margin-top: 3px; }
+.pbv { text-align: right; }
+.pbn { font-size: 22px; font-weight: 700; font-family: 'Rajdhani', sans-serif; }
+.pbm { font-size: 11px; color: var(--texto2); }
+.pbbg { height: 8px; background: var(--fundo2); border-radius: 99px; overflow: hidden; margin-bottom: 8px; }
+.pbfill { height: 100%; border-radius: 99px; transition: width .5s ease; }
+.pbf { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--texto2); flex-wrap: wrap; gap: 6px; }
+.nivel-dots { display: flex; gap: 4px; align-items: center; font-size: 11px; color: var(--texto2); }
+.ndot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+/* Pills */
+.pill { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 99px; }
+.p-ok    { background: rgba(61,179,104,0.2); color: #3db368; }
+.p-warn  { background: rgba(232,131,42,0.2); color: #f5a84a; }
+.p-danger{ background: rgba(226,75,74,0.2);  color: #f87171; }
+.p-great { background: rgba(93,184,247,0.2); color: var(--azul-claro); }
+.p-gray  { background: var(--card2); color: var(--texto2); }
+
+/* Await */
+.await {
+  background: var(--fundo2);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  color: var(--texto2);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* Filtros nível alunos */
+.filtro-nivel { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.fnbtn {
+  padding: 5px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  background: transparent;
+  color: var(--texto2);
+  transition: all .12s;
+}
+.fnbtn:hover { border-color: var(--texto2); color: var(--texto); }
+.fnbtn.active-todos   { background: var(--card2); color: var(--texto); border-color: var(--texto2); }
+.fnbtn.active-baixo   { background: var(--vermelho); color: #fff; border-color: var(--vermelho); }
+.fnbtn.active-medio   { background: var(--laranja); color: #fff; border-color: var(--laranja); }
+.fnbtn.active-alto    { background: var(--verde); color: #fff; border-color: var(--verde); }
+.fnbtn.active-sn      { background: #555; color: #fff; border-color: #555; }
+
+/* Legenda */
+.legend { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.li { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--texto2); }
+.ld { width: 10px; height: 10px; border-radius: 50%; }
+
+/* Grid alunos */
+.agrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 8px; }
+.ac {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: background 0.15s;
+}
+.ac:hover { background: var(--card2); }
+.an { font-size: 13px; font-weight: 700; color: var(--texto); margin-bottom: 1px; }
+.at { font-size: 11px; color: var(--texto2); margin-bottom: 8px; }
+.apbg { height: 5px; background: var(--fundo2); border-radius: 99px; overflow: hidden; margin-bottom: 4px; }
+.apf { height: 100%; border-radius: 99px; }
+.sn-badge { font-size: 10px; background: var(--card2); color: var(--texto2); padding: 1px 5px; border-radius: 4px; }
+.traj { display: flex; gap: 3px; margin-top: 6px; align-items: center; }
+.tj { width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--borda); }
+.empty-filter { text-align: center; padding: 2rem; color: var(--texto2); font-size: 13px; }
+
+/* Carta meta */
+.carta-meta {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 10px;
+}
+
+/* ══════════════════════════════
+   HABILIDADES
+══════════════════════════════ */
+.hab-aviso {
+  background: rgba(245,197,24,0.08);
+  border: 1px solid rgba(245,197,24,0.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--amarelo);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.hab-aviso strong { display: block; margin-bottom: 3px; }
+.hab-aviso p { font-size: 12px; color: var(--texto2); margin-top: 2px; }
+
+.hab-thresholds {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--texto2);
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+.ht-item { display: flex; align-items: center; gap: 5px; font-weight: 600; }
+.ht-dot { width: 8px; height: 8px; border-radius: 50%; }
+.ht-sep { color: var(--borda); font-size: 16px; }
+
+.hab-filtros { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.hfbtn {
+  padding: 6px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  background: transparent;
+  color: var(--texto2);
+  transition: all .12s;
+}
+.hfbtn:hover { border-color: var(--texto2); color: var(--texto); }
+.hfbtn.hf-todos.hactive     { background: var(--card2); color: var(--texto); border-color: var(--texto2); }
+.hfbtn.hf-consolidada.hactive { background: var(--verde); color: #fff; border-color: var(--verde); }
+.hfbtn.hf-construcao.hactive  { background: var(--laranja); color: #fff; border-color: var(--laranja); }
+.hfbtn.hf-defasagem.hactive   { background: var(--vermelho); color: #fff; border-color: var(--vermelho); }
+.hfbtn.hf-aguardando.hactive  { background: #555; color: #fff; border-color: #555; }
+
+.hab-turma-block {
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.hab-turma-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  cursor: pointer;
+  background: var(--fundo2);
+  border-bottom: 1px solid var(--borda);
+  user-select: none;
+  transition: background 0.15s;
+}
+.hab-turma-header:hover { background: var(--card2); }
+.hab-turma-nome { font-size: 14px; font-weight: 700; }
+.hab-turma-stats { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.hab-stat-pill { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 99px; }
+.hsp-c  { background: rgba(45,138,78,0.2);  color: var(--verde-claro); }
+.hsp-ec { background: rgba(232,131,42,0.2); color: #f5a84a; }
+.hsp-d  { background: rgba(226,75,74,0.2);  color: #f87171; }
+.hsp-n  { background: var(--card2); color: var(--texto2); }
+.hab-chevron { font-size: 11px; color: var(--texto2); transition: transform .2s; margin-left: 4px; }
+.hab-chevron.open { transform: rotate(180deg); }
+
+.hab-turma-body { padding: 12px 16px; display: none; }
+.hab-turma-body.open { display: block; }
+
+.hab-summary-bar {
+  display: flex;
+  gap: 2px;
+  height: 6px;
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: var(--fundo2);
+}
+.hsb-seg { height: 100%; transition: width .5s ease; }
+
+.hab-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--borda);
+}
+.hab-row:last-child { border-bottom: none; }
+.hab-status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.hab-codigo {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--texto2);
+  min-width: 88px;
+  font-family: monospace;
+  background: var(--fundo2);
+  padding: 2px 6px;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+.hab-desc { font-size: 12px; color: var(--texto2); flex: 1; min-width: 0; line-height: 1.4; }
+.hab-bar-wrap { width: 80px; flex-shrink: 0; }
+.hab-bar-bg { height: 5px; background: var(--fundo2); border-radius: 99px; overflow: hidden; }
+.hab-bar-fill { height: 100%; border-radius: 99px; transition: width .5s ease; }
+.hab-pct { font-size: 12px; font-weight: 700; min-width: 36px; text-align: right; color: var(--texto2); font-family: monospace; }
+.hab-await-box {
+  text-align: center;
+  padding: 28px 16px;
+  color: var(--texto2);
+  font-size: 13px;
+}
+.hab-await-box .hab-await-icon { font-size: 32px; margin-bottom: 10px; }
+.hab-await-box strong { display: block; color: var(--texto); margin-bottom: 4px; }
+@media (max-width: 540px) {
+  .hab-bar-wrap { display: none; }
+  .hab-codigo { min-width: 70px; font-size: 10px; }
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 12px 24px 20px;
+  font-size: 11px;
+  color: var(--texto2);
+}
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <div class="header">
   <div>
     <div class="header-logo">GAMIFICAÇÃO <span>TOTAL</span></div>
-    <div class="header-sub">Painel de Resultados 2026 · Prof. Douglas Sousa</div>
+    <div class="header-sub">Painel Unificado 2026 · Prof. Douglas Sousa</div>
   </div>
   <div class="header-badge">🎯 Ao vivo</div>
 </div>
 
-<div class="filtros">
-  <span class="filtro-label">Filtrar por:</span>
-  <select id="filtroMes" onchange="aplicarFiltros()">
-    <option value="">📅 Todos os meses</option>
-  </select>
-  <select id="filtroTurma" onchange="aplicarFiltros()">
-    <option value="">🏫 Todas as turmas</option>
-  </select>
-  <select id="filtroEixo" onchange="aplicarFiltros()">
-    <option value="">🃏 Todos os eixos</option>
-  </select>
-  <button class="btn-reset" onclick="resetarFiltros()">↺ Limpar filtros</button>
-</div>
-
-<div class="cards-topo" id="cardsTop"></div>
-<div class="grid-graficos" id="gridGraficos">
-  <div class="grafico-card"><div class="grafico-titulo">Cartas por Eixo</div><canvas id="chartEixo"></canvas></div>
-  <div class="grafico-card"><div class="grafico-titulo">Cartas por Turma</div><canvas id="chartTurma"></canvas></div>
-  <div class="grafico-card full"><div class="grafico-titulo">Evolução Mensal de Cartas</div><canvas id="chartMensal"></canvas></div>
-</div>
-
-<div class="tabela-section">
-  <div class="tabela-card">
-    <div class="tabela-header">
-      <div class="tabela-titulo">Lançamentos</div>
-      <div class="tabela-count" id="tabelaCount">0 registros</div>
+<!-- NAVEGAÇÃO PRINCIPAL -->
+<div class="nav-principal">
+  <button class="nav-card nav-card-resultados ativo-resultados" id="tabBtnResultados" onclick="mostrarSecao('resultados')">
+    <div class="nav-card-icon">📊</div>
+    <div>
+      <div class="nav-card-titulo">Visão Geral</div>
+      <div class="nav-card-sub">Cartas · Pontos · Gráficos · Lançamentos</div>
     </div>
-    <div id="tabelaBody" style="overflow-x:auto; max-height:420px; overflow-y:auto;">
-      <table>
-        <thead><tr><th>#</th><th>Data</th><th>Aluno</th><th>Turma</th><th>Carta</th><th>Eixo</th><th>Pts</th></tr></thead>
-        <tbody id="tabelaRows"></tbody>
-      </table>
+    <div class="nav-card-arrow">›</div>
+  </button>
+  <button class="nav-card nav-card-metas" id="tabBtnMetas" onclick="mostrarSecao('metas')">
+    <div class="nav-card-icon">🎯</div>
+    <div>
+      <div class="nav-card-titulo">Metas e Resultados</div>
+      <div class="nav-card-sub">SARESP · Alunos · Habilidades</div>
+    </div>
+    <div class="nav-card-arrow">›</div>
+  </button>
+</div>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO: RESULTADOS
+══════════════════════════════════════ -->
+<div class="secao ativa" id="secResultados">
+
+  <div class="filtros">
+    <span class="filtro-label">Filtrar por:</span>
+    <select id="filtroMes" onchange="aplicarFiltros()">
+      <option value="">📅 Todos os meses</option>
+    </select>
+    <select id="filtroTurma" onchange="aplicarFiltros()">
+      <option value="">🏫 Todas as turmas</option>
+    </select>
+    <select id="filtroEixo" onchange="aplicarFiltros()">
+      <option value="">🃏 Todos os eixos</option>
+    </select>
+    <button class="btn-reset" onclick="resetarFiltros()">↺ Limpar filtros</button>
+  </div>
+
+  <div class="cards-topo" id="cardsTop"></div>
+
+  <div class="grid-graficos" id="gridGraficos">
+    <div class="grafico-card"><div class="grafico-titulo">Cartas por Eixo</div><canvas id="chartEixo"></canvas></div>
+    <div class="grafico-card"><div class="grafico-titulo">Cartas por Turma</div><canvas id="chartTurma"></canvas></div>
+    <div class="grafico-card full"><div class="grafico-titulo">Evolução Mensal de Cartas</div><canvas id="chartMensal"></canvas></div>
+  </div>
+
+  <div class="tabela-section">
+    <div class="tabela-card">
+      <div class="tabela-header">
+        <div class="tabela-titulo">Lançamentos</div>
+        <div class="tabela-count" id="tabelaCount">0 registros</div>
+      </div>
+      <div id="tabelaBody" style="overflow-x:auto; max-height:420px; overflow-y:auto;">
+        <table>
+          <thead><tr><th>#</th><th>Data</th><th>Aluno</th><th>Turma</th><th>Carta</th><th>Eixo</th><th>Pts</th></tr></thead>
+          <tbody id="tabelaRows"></tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+
+</div><!-- /secResultados -->
+
+<!-- ══════════════════════════════════════
+     SEÇÃO: METAS
+══════════════════════════════════════ -->
+<div class="secao" id="secMetas">
+  <div class="metas-wrap">
+
+    <!-- Barra geral SARESP -->
+    <div class="geral-bar">
+      <div class="gb-row">
+        <span class="gb-label">Progresso rumo à meta SARESP 2026</span>
+        <div class="gb-vals">
+          <span class="gb-from">4,11</span>
+          <span style="color:var(--borda)">→</span>
+          <span class="gb-to">4,52</span>
+          <span class="gb-pct" id="gb-pct-text">Aguardando Prova Paulista</span>
+        </div>
+      </div>
+      <div class="gb-bg">
+        <div class="gb-fill" id="gb-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <!-- Sub-abas -->
+    <div class="sub-tabs">
+      <button class="sub-tab st0 active" onclick="mostrarSubTab('turmas', this)">Por turma</button>
+      <button class="sub-tab st1" onclick="mostrarSubTab('alunos', this)">Por aluno</button>
+      <button class="sub-tab st2" onclick="mostrarSubTab('cartas', this)">Metas de cartas</button>
+      <button class="sub-tab st3" onclick="mostrarSubTab('habilidades', this)">🎯 Habilidades</button>
+    </div>
+
+    <!-- SUB: TURMAS -->
+    <div class="sub-secao ativa" id="sub-turmas">
+      <div class="mgrid">
+        <div class="mc mc0"><div class="ml">Média 2025</div><div class="mv">4,11</div><div class="ms">SARESP geral</div></div>
+        <div class="mc mc1"><div class="ml">Meta 2026</div><div class="mv">4,52</div><div class="ms">+10% geral</div></div>
+        <div class="mc mc2"><div class="ml">Alunos</div><div class="mv">124</div><div class="ms">7 turmas</div></div>
+        <div class="mc mc3"><div class="ml">Bimestre</div><div class="mv" id="bimlabel" style="font-size:18px">—</div><div class="ms" id="bimsubLabel">selecione</div></div>
+      </div>
+      <div class="sw">
+        <label>Prova Paulista:</label>
+        <select id="bimsel" onchange="renderTurmas()">
+          <option value="0">1º bimestre</option>
+          <option value="1">2º bimestre</option>
+          <option value="2">3º bimestre</option>
+          <option value="media">Média acumulada</option>
+        </select>
+      </div>
+      <div id="turmas-list"></div>
+    </div>
+
+    <!-- SUB: ALUNOS -->
+    <div class="sub-secao" id="sub-alunos">
+      <div class="sw">
+        <label>Turma:</label>
+        <select id="turmaselM" onchange="renderAlunos()">
+          <option value="">Todas as turmas</option>
+        </select>
+        <select id="bimalunosel" onchange="renderAlunos()">
+          <option value="-1">Ref: SARESP 2025</option>
+          <option value="0">Após 1º bimestre</option>
+          <option value="1">Após 2º bimestre</option>
+          <option value="2">Após 3º bimestre</option>
+        </select>
+      </div>
+      <div class="filtro-nivel">
+        <button class="fnbtn active-todos" onclick="setFiltro('todos',this)">Todos</button>
+        <button class="fnbtn" onclick="setFiltro('baixo',this)">🔴 Baixo ≤4,0</button>
+        <button class="fnbtn" onclick="setFiltro('medio',this)">🟡 Médio 4,1–6,0</button>
+        <button class="fnbtn" onclick="setFiltro('alto',this)">🟢 Alto &gt;6,0</button>
+        <button class="fnbtn" onclick="setFiltro('sn',this)">⬜ S/N</button>
+      </div>
+      <div class="legend">
+        <div class="li"><div class="ld" style="background:var(--vermelho)"></div>Baixo (≤4,0)</div>
+        <div class="li"><div class="ld" style="background:var(--laranja)"></div>Médio (4,1–6,0)</div>
+        <div class="li"><div class="ld" style="background:var(--verde-claro)"></div>Alto (&gt;6,0)</div>
+        <div class="li"><div class="ld" style="background:var(--borda)"></div>S/N sem nota</div>
+      </div>
+      <div id="alunos-list" class="agrid"></div>
+    </div>
+
+    <!-- SUB: CARTAS -->
+    <div class="sub-secao" id="sub-cartas">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--texto2);margin-bottom:12px;">Metas anuais de cartas por eixo</div>
+      <div style="background:rgba(45,138,78,0.1);border:1px solid rgba(45,138,78,0.3);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:var(--verde-claro);">
+        Meta: mínimo 8 cartas por turma/ano · 7 turmas = 56 cartas mínimas por eixo · Dados calculados automaticamente dos resultados reais.
+      </div>
+      <div id="cartas-list"></div>
+    </div>
+
+    <!-- SUB: HABILIDADES -->
+    <div class="sub-secao" id="sub-habilidades">
+      <div class="hab-aviso">
+        <span style="font-size:18px;flex-shrink:0">⏳</span>
+        <div>
+          <strong>Aguardando resultados da Prova Paulista</strong>
+          <p>Os dados de habilidades serão liberados pelo Estado após o dia 30. Quando disponíveis, atualize o objeto <code>HABILIDADES</code> no script e ajuste o limiar de consolidação em <code>HAB_LIMIAR</code> conforme os critérios definidos pelo Estado.</p>
+        </div>
+      </div>
+
+      <div class="hab-thresholds">
+        <span class="ht-item"><span class="ht-dot" style="background:var(--verde-claro)"></span>Consolidada</span>
+        <span id="ht-c-val" style="font-weight:700;color:var(--verde-claro)"></span>
+        <span class="ht-sep">·</span>
+        <span class="ht-item"><span class="ht-dot" style="background:#f5a84a"></span>Em construção</span>
+        <span id="ht-ec-val" style="font-weight:700;color:#f5a84a"></span>
+        <span class="ht-sep">·</span>
+        <span class="ht-item"><span class="ht-dot" style="background:#f87171"></span>Defasagem</span>
+        <span id="ht-d-val" style="font-weight:700;color:#f87171"></span>
+      </div>
+
+      <div class="sw">
+        <label>Bimestre:</label>
+        <select id="habbimsel" onchange="renderHabilidades()">
+          <option value="0">1º bimestre</option>
+          <option value="1">2º bimestre</option>
+          <option value="2">3º bimestre</option>
+        </select>
+        <label>Turma:</label>
+        <select id="habturmasel" onchange="renderHabilidades()">
+          <option value="">Todas as turmas</option>
+        </select>
+      </div>
+
+      <div class="hab-filtros">
+        <button class="hfbtn hf-todos hactive" onclick="setHabFiltro('todos',this)">Todas</button>
+        <button class="hfbtn hf-consolidada" onclick="setHabFiltro('consolidada',this)">🟢 Consolidada</button>
+        <button class="hfbtn hf-construcao" onclick="setHabFiltro('construcao',this)">🟡 Em construção</button>
+        <button class="hfbtn hf-defasagem" onclick="setHabFiltro('defasagem',this)">🔴 Defasagem</button>
+        <button class="hfbtn hf-aguardando" onclick="setHabFiltro('aguardando',this)">⬜ Aguardando</button>
+      </div>
+
+      <div id="hab-list"></div>
+    </div>
+
+  </div>
+</div><!-- /secMetas -->
 
 <div class="footer" id="footerAtual"></div>
 
 <script>
-// ═══════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
 // DADOS — atualize este bloco com nova planilha
-// ═══════════════════════════════════════════════
-const DADOS = [{"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "ELLEN PEREIRA MIRANDA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "EVAIR RAYMUNDO FRANÇA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "HELOISA MARTINS LIMA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JOÃO PEDRO MANCIO GROPPO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JOÃO VITOR RODRIGUES FORTES", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JOAQUIM LIVRAMENTO OLIVEIRA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JULIA CARNEIRO LOPES", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MARCOS MACEDO DE SOUSA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MARIA ALICE SILVA PRADO PELLICCIARI", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MARIA ESTELA DE ANDRADE SILVA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MIGUEL NEVES MEIRA DE CASTRO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MURILLO GUILHERME RODRIGUES FRANÇA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "NICOLAS EMANUEL MIRANDA DOS SANTOS CAVALHEIRO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JULIA ANZOLIN MACEDO DA CRUZ DE SOUSA", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "PIERRE DE ALMEIDA ASSUNCAO", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "RAFAEL DE JESUS NASCIMENTO DE ANDRADE", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "RAFAELLA MAIELO DE CARVALHO", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "THIAGO RODRIGUES SILVA", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "ARTHUR PIETRO MIRANDA DIAS DOS SANTOS", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "GABRIELLY DA CUNHA SILVA", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "RAFAEL RIBEIRO FENDER", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "THEO PEREIRA LISBOA LOPES", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "DANIELLY VITORIA BRITO DA SILVA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "IZABELA SCATOLIN ANDRADE", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JULIA REIS DE SOUZA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LORRANY EMANUELE SILVA DE MORAIS", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LUCAS DA SILVA ALVES", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LUIS CAETANO ESTEVAM FACTORE SELLA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "VINICIUS TEODORO DA CUNHA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "ANNA CAROLINA LOPES BRITO", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "KAUA ARTILIA MIRANDA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "KAYKE FERREIRA DA SILVA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LUIZ HENRIQUE DE OLIVEIRA LIMA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MARIA LUIZA SOUZA ROCHA DA SILVA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "PABLO BERTHO DE SOUZA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "VITORIA LUIZA DIPOLDI AGUIAR", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LUCIANO RODRIGUES MARQUES", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MARIA CECILIA LOPES MARTINS", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "DIEGO JUAN CHAVES DA ROCHA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JULLYA OLIVEIRA QUINTANA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LAURA MARQUES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "RAUL FERREIRA DE SOUZA FILHO", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "VITORIA SILVA ROSSETTO", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LORRAINE DE MEDEIROS MARQUES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "ELLEN PEREIRA MIRANDA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "EMELLY CRISTINA SOUZA DAL LAGO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JOÃO PEDRO MANCIO GROPPO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JOÃO VITOR RODRIGUES FORTES", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JOAQUIM LIVRAMENTO OLIVEIRA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JULIA CARNEIRO LOPES", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIA ESTELA DE ANDRADE SILVA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIA FERNANDA DOS SANTOS RIBEIRO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MURILLO GUILHERME RODRIGUES FRANÇA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "NICOLAS EMANUEL MIRANDA DOS SANTOS CAVALHEIRO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "FELIPE MILER SOUSA REIS", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JULIA ANZOLIN MACEDO DA CRUZ DE SOUSA", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PIERRE DE ALMEIDA ASSUNCAO", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "RAFAEL DE JESUS NASCIMENTO DE ANDRADE", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "RAFAELLA MAIELO DE CARVALHO", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "THIAGO RODRIGUES SILVA", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "ARTHUR PIETRO MIRANDA DIAS DOS SANTOS", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "DUSTTIN JESUINO PEREJON AMORIM", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LUAN RODRIGUES BORGES", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "DANIELLY VITORIA BRITO DA SILVA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "FELIPE JOSE MOLINARI SOUZA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "GABRIEL DE CAMPOS PONTES", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "HENRIQUE MULLER RIBEIRO DA SILVA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PEDRO ERNANDE FARIAS LUCIO", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "ACAUA BRUNO PEREIRA MIRANDA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JOAO VICTOR DA SILVA MARTINS", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "KAUA ARTILIA MIRANDA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "KAYKE FERREIRA DA SILVA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PABLO BERTHO DE SOUZA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PEDRO HENRIQUE DA SILVA RODRIGUES", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "ANDRESSA VITORIA ARAUJO DE LIMA", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIA CECILIA LOPES MARTINS", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIANA VICTORIA ASSIS DE MELLO", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "TONNY SANTOS SCATOLIN", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "VITORIA SANTOS SCATOLIN", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LIVIA GONÇALVES SIMÕES", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "ALINE RODRIGUES FORTES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "CRISTHIAN ALVES DA CUNHA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "DIEGO JUAN CHAVES DA ROCHA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JULLYA OLIVEIRA QUINTANA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LAURA MARQUES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LORRAINE DE MEDEIROS MARQUES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LUAN RENATO INCROCCI DA SILVEIRA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MANOELLY MARTINS FERRARI", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIA FERNANDA FORTES DOMINGUES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "NAIOMI ZWARG FORTES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PABLO HENRY FORTES FERREIRA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PAMELA GABRIELLY RIBEIRO MARCIANO", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "RAUL FERREIRA DE SOUZA FILHO", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "VITORIA SILVA ROSSETTO", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "VIVIANE DA SILVA FERREIRA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PABLO BERTHO DE SOUZA", "turma": "1ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIANA VICTORIA ASSIS DE MELLO", "turma": "2ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LIVIA GONÇALVES SIMÕES", "turma": "2ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "VITORIA LUIZA DIPOLDI AGUIAR", "turma": "1ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "VITORIA SANTOS SCATOLIN", "turma": "2ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "KAUA ARTILIA MIRANDA", "turma": "1ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIA CLARA SOUZA PERES ALVES", "turma": "1ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}]
-;
-// ═══════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
+const DADOS = [{"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "ELLEN PEREIRA MIRANDA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "EVAIR RAYMUNDO FRANÇA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "HELOISA MARTINS LIMA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JOÃO PEDRO MANCIO GROPPO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JOÃO VITOR RODRIGUES FORTES", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JOAQUIM LIVRAMENTO OLIVEIRA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JULIA CARNEIRO LOPES", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MARCOS MACEDO DE SOUSA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MARIA ALICE SILVA PRADO PELLICCIARI", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MARIA ESTELA DE ANDRADE SILVA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MIGUEL NEVES MEIRA DE CASTRO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MURILLO GUILHERME RODRIGUES FRANÇA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "NICOLAS EMANUEL MIRANDA DOS SANTOS CAVALHEIRO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JULIA ANZOLIN MACEDO DA CRUZ DE SOUSA", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "PIERRE DE ALMEIDA ASSUNCAO", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "RAFAEL DE JESUS NASCIMENTO DE ANDRADE", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "RAFAELLA MAIELO DE CARVALHO", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "THIAGO RODRIGUES SILVA", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "ARTHUR PIETRO MIRANDA DIAS DOS SANTOS", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "GABRIELLY DA CUNHA SILVA", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "RAFAEL RIBEIRO FENDER", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "THEO PEREIRA LISBOA LOPES", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "DANIELLY VITORIA BRITO DA SILVA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "IZABELA SCATOLIN ANDRADE", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JULIA REIS DE SOUZA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LORRANY EMANUELE SILVA DE MORAIS", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LUCAS DA SILVA ALVES", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LUIS CAETANO ESTEVAM FACTORE SELLA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "VINICIUS TEODORO DA CUNHA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "ANNA CAROLINA LOPES BRITO", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "KAUA ARTILIA MIRANDA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "KAYKE FERREIRA DA SILVA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LUIZ HENRIQUE DE OLIVEIRA LIMA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MARIA LUIZA SOUZA ROCHA DA SILVA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "PABLO BERTHO DE SOUZA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "VITORIA LUIZA DIPOLDI AGUIAR", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LUCIANO RODRIGUES MARQUES", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "MARIA CECILIA LOPES MARTINS", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "DIEGO JUAN CHAVES DA ROCHA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "JULLYA OLIVEIRA QUINTANA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LAURA MARQUES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "RAUL FERREIRA DE SOUZA FILHO", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "VITORIA SILVA ROSSETTO", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-03-02", "mes": "03/2026", "mesNome": "Março/2026", "aluno": "LORRAINE DE MEDEIROS MARQUES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "ELLEN PEREIRA MIRANDA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "EMELLY CRISTINA SOUZA DAL LAGO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JOÃO PEDRO MANCIO GROPPO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JOÃO VITOR RODRIGUES FORTES", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JOAQUIM LIVRAMENTO OLIVEIRA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JULIA CARNEIRO LOPES", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIA ESTELA DE ANDRADE SILVA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIA FERNANDA DOS SANTOS RIBEIRO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MURILLO GUILHERME RODRIGUES FRANÇA", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "NICOLAS EMANUEL MIRANDA DOS SANTOS CAVALHEIRO", "turma": "6º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "FELIPE MILER SOUSA REIS", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JULIA ANZOLIN MACEDO DA CRUZ DE SOUSA", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PIERRE DE ALMEIDA ASSUNCAO", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "RAFAEL DE JESUS NASCIMENTO DE ANDRADE", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "RAFAELLA MAIELO DE CARVALHO", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "THIAGO RODRIGUES SILVA", "turma": "7º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "ARTHUR PIETRO MIRANDA DIAS DOS SANTOS", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "DUSTTIN JESUINO PEREJON AMORIM", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LUAN RODRIGUES BORGES", "turma": "8º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "DANIELLY VITORIA BRITO DA SILVA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "FELIPE JOSE MOLINARI SOUZA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "GABRIEL DE CAMPOS PONTES", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "HENRIQUE MULLER RIBEIRO DA SILVA", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PEDRO ERNANDE FARIAS LUCIO", "turma": "9º ano", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "ACAUA BRUNO PEREIRA MIRANDA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JOAO VICTOR DA SILVA MARTINS", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "KAUA ARTILIA MIRANDA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "KAYKE FERREIRA DA SILVA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PABLO BERTHO DE SOUZA", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PEDRO HENRIQUE DA SILVA RODRIGUES", "turma": "1ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "ANDRESSA VITORIA ARAUJO DE LIMA", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIA CECILIA LOPES MARTINS", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIANA VICTORIA ASSIS DE MELLO", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "TONNY SANTOS SCATOLIN", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "VITORIA SANTOS SCATOLIN", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LIVIA GONÇALVES SIMÕES", "turma": "2ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "ALINE RODRIGUES FORTES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "CRISTHIAN ALVES DA CUNHA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "DIEGO JUAN CHAVES DA ROCHA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "JULLYA OLIVEIRA QUINTANA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LAURA MARQUES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LORRAINE DE MEDEIROS MARQUES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LUAN RENATO INCROCCI DA SILVEIRA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MANOELLY MARTINS FERRARI", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIA FERNANDA FORTES DOMINGUES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "NAIOMI ZWARG FORTES", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PABLO HENRY FORTES FERREIRA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PAMELA GABRIELLY RIBEIRO MARCIANO", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "RAUL FERREIRA DE SOUZA FILHO", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "VITORIA SILVA ROSSETTO", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-01", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "VIVIANE DA SILVA FERREIRA", "turma": "3ª série", "carta": "Carruagem do Largo da Matriz", "pontos": 100, "eixo": "Frequência"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "PABLO BERTHO DE SOUZA", "turma": "1ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIANA VICTORIA ASSIS DE MELLO", "turma": "2ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "LIVIA GONÇALVES SIMÕES", "turma": "2ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "VITORIA LUIZA DIPOLDI AGUIAR", "turma": "1ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "VITORIA SANTOS SCATOLIN", "turma": "2ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "KAUA ARTILIA MIRANDA", "turma": "1ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}, {"data": "2026-04-17", "mes": "04/2026", "mesNome": "Abril/2026", "aluno": "MARIA CLARA SOUZA PERES ALVES", "turma": "1ª série", "carta": "Seu Carlos", "pontos": 200, "eixo": "Protagonismo Juvenil"}];
 
+// ═══════════════════════════════════════════════════
+// DADOS METAS — atualize quando chegarem notas
+// ═══════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
+// PALETA ÚNICA DE CORES POR TURMA
+// ═══════════════════════════════════════════════════
+const CORES_POR_TURMA = {
+  '6º ano':   '#f5c518',
+  '7º ano':   '#e8832a',
+  '8º ano':   '#3db368',
+  '9º ano':   '#5db8f7',
+  '1ª série': '#a78bfa',
+  '2ª série': '#e24b4a',
+  '3ª série': '#f472b6',
+};
+function corTurma(t) { return CORES_POR_TURMA[t] || '#8fb3cc'; }
+
+const SARESP = {
+  'ANDRE ALVES CARNEIRO': null, 'ELLEN PEREIRA MIRANDA': null, 'EMELLY CRISTINA SOUZA DAL LAGO': null, 'EVAIR RAYMUNDO FRANÇA': null, 'HELOISA MARTINS LIMA': null, 'JOÃO PEDRO MANCIO GROPPO': null, 'JOÃO VITOR RODRIGUES FORTES': null, 'JOAQUIM LIVRAMENTO OLIVEIRA': null, 'JULIA CARNEIRO LOPES': null, 'KAIQUE RIBEIRO BORGES': null, 'LUAN DE LIMA ENÉIA RAPOSO': null, 'LUCCA PEGORETTI MARCONDES': null, 'LUIZA MANOELA PAZINI LOURENÇO': null, 'MARCOS MACEDO DE SOUSA': null, 'MARIA ALICE SILVA PRADO PELLICCIARI': null, 'MARIA ESTELA DE ANDRADE SILVA': null, 'MARIA FERNANDA DOS SANTOS RIBEIRO': null, 'MIGUEL NEVES MEIRA DE CASTRO': null, 'MURILLO GUILHERME RODRIGUES FRANÇA': null, 'NICOLAS EMANUEL MIRANDA DOS SANTOS CAVALHEIRO': null,
+  'ANA VITÓRIA PACHECO BARBOZA': 4, 'FELIPE MILER SOUSA REIS': 8, 'GUILHERME RAFAEL DE OLIVEIRA UCHISE': 2, 'GUSTAVO GABRIEL DE OLIVEIRA UCHISE': 4, 'JHONATAN ALVES VIANA DE SOUZA': 2, 'JULIA ANZOLIN MACEDO DA CRUZ DE SOUSA': 9, 'LUCY CORADINI SACRAMENTO LOPES': 6, 'LUCY VIEIRA REIS': 4, 'MANUELA FERREIRA ROSSETTO': 4, 'MIKAELL PIRES CUNHA': 5, 'PIERRE DE ALMEIDA ASSUNCAO': 7, 'RAFAEL DE JESUS NASCIMENTO DE ANDRADE': 7, 'RAFAELLA MAIELO DE CARVALHO': 5, 'RUAN RIBEIRO DA SILVA': 5, 'SAMUEL AMORIM DOS SANTOS': 4, 'TAMYRIS JULIANA CHIFARELLI BAPTISTA DA SILVA': 4, 'THIAGO RODRIGUES SILVA': 5,
+  'ARTHUR PIETRO MIRANDA DIAS DOS SANTOS': 3, 'DUSTTIN JESUINO PEREJON AMORIM': 6, 'FERNANDO HENRIQUE DE SOUZA CARVALHO': 3, 'GABRIELLY DA CUNHA SILVA': 2, 'GABRIELLY DE OLIVEIRA UCHISE': 5, 'HENRIQUE DE SOUZA AGUIAR': 3, 'IASMIN ALVES VIANA DE SOUSA': 2, 'LUAN RODRIGUES BORGES': 1, 'LUIZ OTAVIO DE LIMA AGUIAR LEHMANN': 4, 'MANUELLA SANTANA CUNHA': 2, 'MARCELO GIOVANINI SILVA': null, 'PAULO HENRIK MARTINS FERRARI': 3, 'PEDRO PEREIRA DE CARVALHO': 6, 'RAFAEL RIBEIRO FENDER': 2, 'SILAS INACIO MENDES DA SILVA': 2, 'THEO PEREIRA LISBOA LOPES': 3,
+  'DANIELLY VITORIA BRITO DA SILVA': 4, 'ENZO MARTINS DOS SANTOS': 3, 'FELIPE JOSE MOLINARI SOUZA': 3, 'GABRIEL DE CAMPOS PONTES': 1, 'HENRIQUE MULLER RIBEIRO DA SILVA': 2, 'IZABELA SCATOLIN ANDRADE': 5, 'JULIA REIS DE SOUZA': 3, 'LORRANY EMANUELE SILVA DE MORAIS': 3, 'LUARA TAVARES FLORIDO': 5, 'LUCAS DA SILVA ALVES': 2, 'LUIS CAETANO ESTEVAM FACTORE SELLA': 7, 'LUIS GABRIEL SARDINHA DE LIMA': null, 'MAXMILIANO MENDES DA SILVA': 3, 'PEDRO ERNANDE FARIAS LUCIO': 2, 'RAPHAELLA CARNEIRO SOUZA': 6, 'SAMUEL DE SOUZA FRANCA': null, 'THAYLA FRANCA OLIVEIRA': 6, 'VINICIUS TEODORO DA CUNHA': null,
+  'ACAUA BRUNO PEREIRA MIRANDA': 4, 'AILTON GOMES PUPO NETTO': null, 'ANNA CAROLINA LOPES BRITO': null, 'ARTHUR RIPARI DE ANDRADE': 3, 'CAMILY LETICIA CHIFARELLI BAPTISTA DA SILVA': null, 'HENRIQUE FERREIRA CARNEIRO': null, 'ISAIAS RODRIGUES DE SOUZA RIBEIRO': 5, 'JENNIFER LARA BARBOSA': null, 'JOÃO PEDRO MOLINARI SOUZA': 5, 'JOAO VICTOR DA SILVA MARTINS': 6, 'KAUA ARTILIA MIRANDA': 10, 'KAYKE FERREIRA DA SILVA': 3, 'LANNA GABRIELLY VILELA DA ROCHA': null, 'LUCIANO RODRIGUES MARQUES': 5, 'LUIZ HENRIQUE DE OLIVEIRA LIMA': null, 'MARIA CLARA SOUZA PERES ALVES': null, 'MARIA LUIZA SOUZA ROCHA DA SILVA': null, 'PABLO BERTHO DE SOUZA': null, 'PEDRO HENRIQUE DA SILVA RODRIGUES': null, 'RAFAEL RIBEIRO DA SILVA': null, 'VITORIA LUIZA DIPOLDI AGUIAR': null,
+  'ANDRESSA VITORIA ARAUJO DE LIMA': 2.5, 'DANILO RODRIGUES FORTES': 5, 'ISABELLY CAROLINE PEDROSO PEREIRA': null, 'LUAN TAVARES FLORIDO': 3.75, 'LUANY GABRIELLY MARQUES ALVES': 7.5, 'MARIA CECILIA LOPES MARTINS': 3.75, 'MARIANA VICTORIA ASSIS DE MELLO': 7.5, 'MATHEUS ORTEGA CERAVOLO INCROCCI': 3.75, 'PAULO RICARDO MACHADO DE CARVALHO': 6.25, 'SOPHIA DE SOUZA CARVALHO': 3.75, 'TONNY SANTOS SCATOLIN': 3.75, 'TUANNY ARIADNE BARRIONUEVO RODRIGUES': 7.5, 'VALBER RAYMUNDO FRANCA': 1.25, 'VITORIA SANTOS SCATOLIN': 7.5, 'LIVIA GONÇALVES SIMÕES': null,
+  'ALINE RODRIGUES FORTES': 6.25, 'ANA CLARA TRUDES CORDEIRO': 1.25, 'CRISTHIAN ALVES DA CUNHA': 3.75, 'DIEGO JUAN CHAVES DA ROCHA': 1.25, 'JULLYA OLIVEIRA QUINTANA': 2.5, 'LAURA MARQUES': 1.25, 'LORRAINE DE MEDEIROS MARQUES': 5, 'LUAN RENATO INCROCCI DA SILVEIRA': null, 'MANOELLY MARTINS FERRARI': 3.75, 'MARIA FERNANDA FORTES DOMINGUES': 1.25, 'NAIOMI ZWARG FORTES': 3.75, 'PABLO HENRY FORTES FERREIRA': 1.25, 'PAMELA GABRIELLY RIBEIRO MARCIANO': 2.5, 'RAUL FERREIRA DE SOUZA FILHO': 3.75, 'VITORIA SILVA ROSSETTO': 0, 'VIVIANE DA SILVA FERREIRA': 1.25,
+};
+
+const TURMAS_META = [
+  { turma: '6º ano',   s25: 5.1, meta: 5.2, provas: [null, null, null], cor: CORES_POR_TURMA['6º ano']   },
+  { turma: '7º ano',   s25: 2.7, meta: 4.5, provas: [null, null, null], cor: CORES_POR_TURMA['7º ano']   },
+  { turma: '8º ano',   s25: 3.7, meta: 4.1, provas: [null, null, null], cor: CORES_POR_TURMA['8º ano']   },
+  { turma: '9º ano',   s25: 5.8, meta: 6.0, provas: [null, null, null], cor: CORES_POR_TURMA['9º ano']   },
+  { turma: '1ª série', s25: 5.3, meta: 5.5, provas: [null, null, null], cor: CORES_POR_TURMA['1ª série'] },
+  { turma: '2ª série', s25: 2.8, meta: 4.8, provas: [null, null, null], cor: CORES_POR_TURMA['2ª série'] },
+  { turma: '3ª série', s25: 3.4, meta: 3.6, provas: [null, null, null], cor: CORES_POR_TURMA['3ª série'] },
+];
+
+const ALUNOS_BASE = [
+  { nome: 'ANDRE ALVES CARNEIRO', turma: '6º ano' }, { nome: 'ELLEN PEREIRA MIRANDA', turma: '6º ano' }, { nome: 'EMELLY CRISTINA SOUZA DAL LAGO', turma: '6º ano' }, { nome: 'EVAIR RAYMUNDO FRANÇA', turma: '6º ano' }, { nome: 'HELOISA MARTINS LIMA', turma: '6º ano' }, { nome: 'JOÃO PEDRO MANCIO GROPPO', turma: '6º ano' }, { nome: 'JOÃO VITOR RODRIGUES FORTES', turma: '6º ano' }, { nome: 'JOAQUIM LIVRAMENTO OLIVEIRA', turma: '6º ano' }, { nome: 'JULIA CARNEIRO LOPES', turma: '6º ano' }, { nome: 'KAIQUE RIBEIRO BORGES', turma: '6º ano' }, { nome: 'LUAN DE LIMA ENÉIA RAPOSO', turma: '6º ano' }, { nome: 'LUCCA PEGORETTI MARCONDES', turma: '6º ano' }, { nome: 'LUIZA MANOELA PAZINI LOURENÇO', turma: '6º ano' }, { nome: 'MARCOS MACEDO DE SOUSA', turma: '6º ano' }, { nome: 'MARIA ALICE SILVA PRADO PELLICCIARI', turma: '6º ano' }, { nome: 'MARIA ESTELA DE ANDRADE SILVA', turma: '6º ano' }, { nome: 'MARIA FERNANDA DOS SANTOS RIBEIRO', turma: '6º ano' }, { nome: 'MIGUEL NEVES MEIRA DE CASTRO', turma: '6º ano' }, { nome: 'MURILLO GUILHERME RODRIGUES FRANÇA', turma: '6º ano' }, { nome: 'NICOLAS EMANUEL MIRANDA DOS SANTOS CAVALHEIRO', turma: '6º ano' },
+  { nome: 'ANA VITÓRIA PACHECO BARBOZA', turma: '7º ano' }, { nome: 'FELIPE MILER SOUSA REIS', turma: '7º ano' }, { nome: 'GUILHERME RAFAEL DE OLIVEIRA UCHISE', turma: '7º ano' }, { nome: 'GUSTAVO GABRIEL DE OLIVEIRA UCHISE', turma: '7º ano' }, { nome: 'JHONATAN ALVES VIANA DE SOUZA', turma: '7º ano' }, { nome: 'JULIA ANZOLIN MACEDO DA CRUZ DE SOUSA', turma: '7º ano' }, { nome: 'LUCY CORADINI SACRAMENTO LOPES', turma: '7º ano' }, { nome: 'LUCY VIEIRA REIS', turma: '7º ano' }, { nome: 'MANUELA FERREIRA ROSSETTO', turma: '7º ano' }, { nome: 'MIKAELL PIRES CUNHA', turma: '7º ano' }, { nome: 'PIERRE DE ALMEIDA ASSUNCAO', turma: '7º ano' }, { nome: 'RAFAEL DE JESUS NASCIMENTO DE ANDRADE', turma: '7º ano' }, { nome: 'RAFAELLA MAIELO DE CARVALHO', turma: '7º ano' }, { nome: 'RUAN RIBEIRO DA SILVA', turma: '7º ano' }, { nome: 'SAMUEL AMORIM DOS SANTOS', turma: '7º ano' }, { nome: 'TAMYRIS JULIANA CHIFARELLI BAPTISTA DA SILVA', turma: '7º ano' }, { nome: 'THIAGO RODRIGUES SILVA', turma: '7º ano' },
+  { nome: 'ARTHUR PIETRO MIRANDA DIAS DOS SANTOS', turma: '8º ano' }, { nome: 'DUSTTIN JESUINO PEREJON AMORIM', turma: '8º ano' }, { nome: 'FERNANDO HENRIQUE DE SOUZA CARVALHO', turma: '8º ano' }, { nome: 'GABRIELLY DA CUNHA SILVA', turma: '8º ano' }, { nome: 'GABRIELLY DE OLIVEIRA UCHISE', turma: '8º ano' }, { nome: 'HENRIQUE DE SOUZA AGUIAR', turma: '8º ano' }, { nome: 'IASMIN ALVES VIANA DE SOUSA', turma: '8º ano' }, { nome: 'LUAN RODRIGUES BORGES', turma: '8º ano' }, { nome: 'LUIZ OTAVIO DE LIMA AGUIAR LEHMANN', turma: '8º ano' }, { nome: 'MANUELLA SANTANA CUNHA', turma: '8º ano' }, { nome: 'MARCELO GIOVANINI SILVA', turma: '8º ano' }, { nome: 'PAULO HENRIK MARTINS FERRARI', turma: '8º ano' }, { nome: 'PEDRO PEREIRA DE CARVALHO', turma: '8º ano' }, { nome: 'RAFAEL RIBEIRO FENDER', turma: '8º ano' }, { nome: 'SILAS INACIO MENDES DA SILVA', turma: '8º ano' }, { nome: 'THEO PEREIRA LISBOA LOPES', turma: '8º ano' },
+  { nome: 'DANIELLY VITORIA BRITO DA SILVA', turma: '9º ano' }, { nome: 'ENZO MARTINS DOS SANTOS', turma: '9º ano' }, { nome: 'FELIPE JOSE MOLINARI SOUZA', turma: '9º ano' }, { nome: 'GABRIEL DE CAMPOS PONTES', turma: '9º ano' }, { nome: 'HENRIQUE MULLER RIBEIRO DA SILVA', turma: '9º ano' }, { nome: 'IZABELA SCATOLIN ANDRADE', turma: '9º ano' }, { nome: 'JULIA REIS DE SOUZA', turma: '9º ano' }, { nome: 'LORRANY EMANUELE SILVA DE MORAIS', turma: '9º ano' }, { nome: 'LUARA TAVARES FLORIDO', turma: '9º ano' }, { nome: 'LUCAS DA SILVA ALVES', turma: '9º ano' }, { nome: 'LUIS CAETANO ESTEVAM FACTORE SELLA', turma: '9º ano' }, { nome: 'LUIS GABRIEL SARDINHA DE LIMA', turma: '9º ano' }, { nome: 'MAXMILIANO MENDES DA SILVA', turma: '9º ano' }, { nome: 'PEDRO ERNANDE FARIAS LUCIO', turma: '9º ano' }, { nome: 'RAPHAELLA CARNEIRO SOUZA', turma: '9º ano' }, { nome: 'SAMUEL DE SOUZA FRANCA', turma: '9º ano' }, { nome: 'THAYLA FRANCA OLIVEIRA', turma: '9º ano' }, { nome: 'VINICIUS TEODORO DA CUNHA', turma: '9º ano' },
+  { nome: 'ACAUA BRUNO PEREIRA MIRANDA', turma: '1ª série' }, { nome: 'AILTON GOMES PUPO NETTO', turma: '1ª série' }, { nome: 'ANNA CAROLINA LOPES BRITO', turma: '1ª série' }, { nome: 'ARTHUR RIPARI DE ANDRADE', turma: '1ª série' }, { nome: 'CAMILY LETICIA CHIFARELLI BAPTISTA DA SILVA', turma: '1ª série' }, { nome: 'HENRIQUE FERREIRA CARNEIRO', turma: '1ª série' }, { nome: 'ISAIAS RODRIGUES DE SOUZA RIBEIRO', turma: '1ª série' }, { nome: 'JENNIFER LARA BARBOSA', turma: '1ª série' }, { nome: 'JOÃO PEDRO MOLINARI SOUZA', turma: '1ª série' }, { nome: 'JOAO VICTOR DA SILVA MARTINS', turma: '1ª série' }, { nome: 'KAUA ARTILIA MIRANDA', turma: '1ª série' }, { nome: 'KAYKE FERREIRA DA SILVA', turma: '1ª série' }, { nome: 'LANNA GABRIELLY VILELA DA ROCHA', turma: '1ª série' }, { nome: 'LUCIANO RODRIGUES MARQUES', turma: '1ª série' }, { nome: 'LUIZ HENRIQUE DE OLIVEIRA LIMA', turma: '1ª série' }, { nome: 'MARIA CLARA SOUZA PERES ALVES', turma: '1ª série' }, { nome: 'MARIA LUIZA SOUZA ROCHA DA SILVA', turma: '1ª série' }, { nome: 'PABLO BERTHO DE SOUZA', turma: '1ª série' }, { nome: 'PEDRO HENRIQUE DA SILVA RODRIGUES', turma: '1ª série' }, { nome: 'RAFAEL RIBEIRO DA SILVA', turma: '1ª série' }, { nome: 'VITORIA LUIZA DIPOLDI AGUIAR', turma: '1ª série' },
+  { nome: 'ANDRESSA VITORIA ARAUJO DE LIMA', turma: '2ª série' }, { nome: 'DANILO RODRIGUES FORTES', turma: '2ª série' }, { nome: 'ISABELLY CAROLINE PEDROSO PEREIRA', turma: '2ª série' }, { nome: 'LUAN TAVARES FLORIDO', turma: '2ª série' }, { nome: 'LUANY GABRIELLY MARQUES ALVES', turma: '2ª série' }, { nome: 'MARIA CECILIA LOPES MARTINS', turma: '2ª série' }, { nome: 'MARIANA VICTORIA ASSIS DE MELLO', turma: '2ª série' }, { nome: 'MATHEUS ORTEGA CERAVOLO INCROCCI', turma: '2ª série' }, { nome: 'PAULO RICARDO MACHADO DE CARVALHO', turma: '2ª série' }, { nome: 'SOPHIA DE SOUZA CARVALHO', turma: '2ª série' }, { nome: 'TONNY SANTOS SCATOLIN', turma: '2ª série' }, { nome: 'TUANNY ARIADNE BARRIONUEVO RODRIGUES', turma: '2ª série' }, { nome: 'VALBER RAYMUNDO FRANCA', turma: '2ª série' }, { nome: 'VITORIA SANTOS SCATOLIN', turma: '2ª série' }, { nome: 'LIVIA GONÇALVES SIMÕES', turma: '2ª série' },
+  { nome: 'ALINE RODRIGUES FORTES', turma: '3ª série' }, { nome: 'ANA CLARA TRUDES CORDEIRO', turma: '3ª série' }, { nome: 'CRISTHIAN ALVES DA CUNHA', turma: '3ª série' }, { nome: 'DIEGO JUAN CHAVES DA ROCHA', turma: '3ª série' }, { nome: 'JULLYA OLIVEIRA QUINTANA', turma: '3ª série' }, { nome: 'LAURA MARQUES', turma: '3ª série' }, { nome: 'LORRAINE DE MEDEIROS MARQUES', turma: '3ª série' }, { nome: 'LUAN RENATO INCROCCI DA SILVEIRA', turma: '3ª série' }, { nome: 'MANOELLY MARTINS FERRARI', turma: '3ª série' }, { nome: 'MARIA FERNANDA FORTES DOMINGUES', turma: '3ª série' }, { nome: 'NAIOMI ZWARG FORTES', turma: '3ª série' }, { nome: 'PABLO HENRY FORTES FERREIRA', turma: '3ª série' }, { nome: 'PAMELA GABRIELLY RIBEIRO MARCIANO', turma: '3ª série' }, { nome: 'RAUL FERREIRA DE SOUZA FILHO', turma: '3ª série' }, { nome: 'VITORIA SILVA ROSSETTO', turma: '3ª série' }, { nome: 'VIVIANE DA SILVA FERREIRA', turma: '3ª série' },
+];
+
+// Metas de cartas por eixo — calculadas automaticamente dos DADOS reais
+const METAS_CARTAS = [
+  { eixo: 'Protagonismo Juvenil', colecao: 'Mestres da Cultura', meta: 56, cor: '#e8832a' },
+  { eixo: 'Iniciação Científica',  colecao: 'Pesquisadores',     meta: 56, cor: '#3db368' },
+];
+
+// ═══════════════════════════════════════════════════
+// CORES
+// ═══════════════════════════════════════════════════
 const CORES_EIXO = {
   'Frequência': '#5db8f7',
   'Desempenho': '#3db368',
@@ -359,14 +1007,37 @@ const CORES_EIXO = {
   'Iniciação Científica': '#a78bfa',
   'Protagonismo': '#f5a84a',
 };
-const CORES_TURMAS = ['#f5c518','#3db368','#5db8f7','#e8832a','#a78bfa','#f87171','#34d399','#60a5fa','#fbbf24'];
+// Paleta única de cores por turma — usada em TODO o aplicativo
 
 let chartEixo, chartTurma, chartMensal;
+let filtroNivel = 'todos';
 
-function nomeMes(m) { return m; }
+// ═══════════════════════════════════════════════════
+// NAVEGAÇÃO ABAS
+// ═══════════════════════════════════════════════════
+function mostrarSecao(id) {
+  document.querySelectorAll('.secao').forEach(s => s.classList.remove('ativa'));
+  document.getElementById('sec' + id.charAt(0).toUpperCase() + id.slice(1)).classList.add('ativa');
+  // reset nav cards
+  document.getElementById('tabBtnResultados').classList.remove('ativo-resultados');
+  document.getElementById('tabBtnMetas').classList.remove('ativo-metas');
+  if (id === 'resultados') document.getElementById('tabBtnResultados').classList.add('ativo-resultados');
+  if (id === 'metas')      document.getElementById('tabBtnMetas').classList.add('ativo-metas');
+}
 
+function mostrarSubTab(id, el) {
+  document.querySelectorAll('.sub-secao').forEach(s => s.classList.remove('ativa'));
+  document.getElementById('sub-' + id).classList.add('ativa');
+  document.querySelectorAll('.sub-tab').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  if (id === 'habilidades') renderHabilidades();
+}
+
+// ═══════════════════════════════════════════════════
+// PAINEL RESULTADOS
+// ═══════════════════════════════════════════════════
 function badgeEixo(eixo) {
-  const cls = eixo.replace(' ', '').replace('Juvenil','');
+  const cls = eixo.replace(/ /g,'').replace('Juvenil','');
   return `<span class="badge-eixo badge-${cls}">${eixo}</span>`;
 }
 
@@ -375,129 +1046,56 @@ function calcular(dados) {
   const totalPontos = dados.reduce((s,r) => s + r.pontos, 0);
   const alunosUnicos = new Set(dados.map(r => r.aluno)).size;
   const turmasUnicas = new Set(dados.map(r => r.turma)).size;
-  const meses = [...new Set(dados.map(r => r.mes))].length;
-
-  // por eixo
-  const porEixo = {};
-  dados.forEach(r => { porEixo[r.eixo] = (porEixo[r.eixo]||0) + 1; });
-
-  // por turma
-  const porTurma = {};
-  dados.forEach(r => { porTurma[r.turma] = (porTurma[r.turma]||0) + 1; });
-
-  // por mês
-  const porMes = {};
-  dados.forEach(r => { porMes[r.mesNome] = (porMes[r.mesNome]||0) + 1; });
-
-  return { totalCartas, totalPontos, alunosUnicos, turmasUnicas, meses, porEixo, porTurma, porMes };
+  const porEixo = {}, porTurma = {}, porMes = {};
+  dados.forEach(r => {
+    porEixo[r.eixo] = (porEixo[r.eixo]||0) + 1;
+    porTurma[r.turma] = (porTurma[r.turma]||0) + 1;
+    porMes[r.mesNome] = (porMes[r.mesNome]||0) + 1;
+  });
+  return { totalCartas, totalPontos, alunosUnicos, turmasUnicas, porEixo, porTurma, porMes };
 }
 
 function renderCards(stats) {
   document.getElementById('cardsTop').innerHTML = `
-    <div class="card-num verde">
-      <div class="card-titulo">Cartas conquistadas</div>
-      <div class="card-valor">${stats.totalCartas}</div>
-      <div class="card-desc">no período filtrado</div>
-    </div>
-    <div class="card-num amarelo">
-      <div class="card-titulo">Pontos distribuídos</div>
-      <div class="card-valor">${stats.totalPontos.toLocaleString('pt-BR')}</div>
-      <div class="card-desc">pontuação acumulada</div>
-    </div>
-    <div class="card-num azul">
-      <div class="card-titulo">Alunos ativos</div>
-      <div class="card-valor">${stats.alunosUnicos}</div>
-      <div class="card-desc">com ao menos 1 carta</div>
-    </div>
-    <div class="card-num laranja">
-      <div class="card-titulo">Turmas</div>
-      <div class="card-valor">${stats.turmasUnicas}</div>
-      <div class="card-desc">participando</div>
-    </div>
-    <div class="card-num roxo">
-      <div class="card-titulo">Eixos ativos</div>
-      <div class="card-valor">${Object.keys(stats.porEixo).length}</div>
-      <div class="card-desc">de 4 possíveis</div>
-    </div>
+    <div class="card-num verde"><div class="card-titulo">Cartas conquistadas</div><div class="card-valor">${stats.totalCartas}</div><div class="card-desc">no período filtrado</div></div>
+    <div class="card-num amarelo"><div class="card-titulo">Pontos distribuídos</div><div class="card-valor">${stats.totalPontos.toLocaleString('pt-BR')}</div><div class="card-desc">pontuação acumulada</div></div>
+    <div class="card-num azul"><div class="card-titulo">Alunos ativos</div><div class="card-valor">${stats.alunosUnicos}</div><div class="card-desc">com ao menos 1 carta</div></div>
+    <div class="card-num laranja"><div class="card-titulo">Turmas</div><div class="card-valor">${stats.turmasUnicas}</div><div class="card-desc">participando</div></div>
+    <div class="card-num roxo"><div class="card-titulo">Eixos ativos</div><div class="card-valor">${Object.keys(stats.porEixo).length}</div><div class="card-desc">de 4 possíveis</div></div>
   `;
 }
 
 function renderGraficos(stats) {
-  const eixosLabels = Object.keys(stats.porEixo);
-  const eixosVals = Object.values(stats.porEixo);
-  const eixosCores = eixosLabels.map(e => CORES_EIXO[e] || '#888');
-
+  const el = Object.keys(stats.porEixo), ev = Object.values(stats.porEixo);
   if (chartEixo) chartEixo.destroy();
   chartEixo = new Chart(document.getElementById('chartEixo'), {
     type: 'doughnut',
-    data: { labels: eixosLabels, datasets: [{ data: eixosVals, backgroundColor: eixosCores, borderWidth: 2, borderColor: '#1e2d3d' }] },
-    options: {
-      responsive: true, maintainAspectRatio: true,
-      plugins: {
-        legend: { position: 'bottom', labels: { color: '#8fb3cc', font: { family: 'Nunito', size: 11 }, padding: 12 } }
-      }
-    }
+    data: { labels: el, datasets: [{ data: ev, backgroundColor: el.map(e => CORES_EIXO[e]||'#888'), borderWidth: 2, borderColor: '#1e2d3d' }] },
+    options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom', labels: { color: '#8fb3cc', font: { family: 'Nunito', size: 11 }, padding: 12 } } } }
   });
 
-  const turmasLabels = Object.keys(stats.porTurma).sort();
-  const turmasVals = turmasLabels.map(t => stats.porTurma[t]);
-  const turmasCores = turmasLabels.map((_,i) => CORES_TURMAS[i % CORES_TURMAS.length]);
-
+  const ORDEM_TURMAS = ['6º ano','7º ano','8º ano','9º ano','1ª série','2ª série','3ª série'];
+  const tl = ORDEM_TURMAS.filter(t => stats.porTurma[t] !== undefined), tv = tl.map(t => stats.porTurma[t]);
   if (chartTurma) chartTurma.destroy();
   chartTurma = new Chart(document.getElementById('chartTurma'), {
     type: 'bar',
-    data: { labels: turmasLabels, datasets: [{ label: 'Cartas', data: turmasVals, backgroundColor: turmasCores, borderRadius: 6 }] },
-    options: {
-      responsive: true, maintainAspectRatio: true,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { color: '#8fb3cc', font: { size: 11 } }, grid: { color: '#2e4a63' } },
-        y: { ticks: { color: '#8fb3cc', font: { size: 11 } }, grid: { color: '#2e4a63' }, beginAtZero: true }
-      }
-    }
+    data: { labels: tl, datasets: [{ label: 'Cartas', data: tv, backgroundColor: tl.map(t => corTurma(t)), borderRadius: 6 }] },
+    options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#8fb3cc', font: { size: 11 } }, grid: { color: '#2e4a63' } }, y: { ticks: { color: '#8fb3cc', font: { size: 11 } }, grid: { color: '#2e4a63' }, beginAtZero: true } } }
   });
 
-  const mesesLabels = Object.keys(stats.porMes);
-  const mesesVals = mesesLabels.map(m => stats.porMes[m]);
-
+  const ml = Object.keys(stats.porMes), mv = ml.map(m => stats.porMes[m]);
   if (chartMensal) chartMensal.destroy();
   chartMensal = new Chart(document.getElementById('chartMensal'), {
     type: 'line',
-    data: {
-      labels: mesesLabels,
-      datasets: [{
-        label: 'Cartas conquistadas',
-        data: mesesVals,
-        borderColor: '#f5c518',
-        backgroundColor: 'rgba(245,197,24,0.12)',
-        pointBackgroundColor: '#f5c518',
-        pointRadius: 6,
-        pointHoverRadius: 8,
-        tension: 0.3,
-        fill: true,
-        borderWidth: 2,
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: true,
-      plugins: { legend: { labels: { color: '#8fb3cc', font: { family: 'Nunito', size: 11 } } } },
-      scales: {
-        x: { ticks: { color: '#8fb3cc', font: { size: 11 } }, grid: { color: '#2e4a63' } },
-        y: { ticks: { color: '#8fb3cc', font: { size: 11 } }, grid: { color: '#2e4a63' }, beginAtZero: true }
-      }
-    }
+    data: { labels: ml, datasets: [{ label: 'Cartas conquistadas', data: mv, borderColor: '#f5c518', backgroundColor: 'rgba(245,197,24,0.12)', pointBackgroundColor: '#f5c518', pointRadius: 6, pointHoverRadius: 8, tension: 0.3, fill: true, borderWidth: 2 }] },
+    options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { labels: { color: '#8fb3cc', font: { family: 'Nunito', size: 11 } } } }, scales: { x: { ticks: { color: '#8fb3cc', font: { size: 11 } }, grid: { color: '#2e4a63' } }, y: { ticks: { color: '#8fb3cc', font: { size: 11 } }, grid: { color: '#2e4a63' }, beginAtZero: true } } }
   });
 }
 
 function renderTabela(dados) {
   const sorted = [...dados].sort((a,b) => b.data.localeCompare(a.data));
   document.getElementById('tabelaCount').textContent = `${sorted.length} registros`;
-
-  if (sorted.length === 0) {
-    document.getElementById('tabelaRows').innerHTML = `<tr><td colspan="7" class="vazio">Nenhum registro encontrado para os filtros selecionados.</td></tr>`;
-    return;
-  }
-
+  if (!sorted.length) { document.getElementById('tabelaRows').innerHTML = `<tr><td colspan="7" class="vazio">Nenhum registro encontrado.</td></tr>`; return; }
   document.getElementById('tabelaRows').innerHTML = sorted.map((r,i) => `
     <tr>
       <td style="color:var(--texto2);font-size:12px">${i+1}</td>
@@ -507,52 +1105,26 @@ function renderTabela(dados) {
       <td style="font-size:12px">${r.carta}</td>
       <td>${badgeEixo(r.eixo)}</td>
       <td class="pontos-cell">+${r.pontos}</td>
-    </tr>
-  `).join('');
+    </tr>`).join('');
 }
 
 function popularFiltros() {
-  const meses = [...new Set(DADOS.map(r => JSON.stringify({mes:r.mes,mesNome:r.mesNome})))]
-    .map(s => JSON.parse(s))
-    .sort((a,b) => a.mes.localeCompare(b.mes));
-  const selMes = document.getElementById('filtroMes');
-  meses.forEach(m => {
-    const opt = document.createElement('option');
-    opt.value = m.mes; opt.textContent = m.mesNome;
-    selMes.appendChild(opt);
-  });
-
-  const turmas = [...new Set(DADOS.map(r => r.turma))].sort();
-  const selTurma = document.getElementById('filtroTurma');
-  turmas.forEach(t => {
-    const opt = document.createElement('option');
-    opt.value = t; opt.textContent = t;
-    selTurma.appendChild(opt);
-  });
-
-  const eixos = [...new Set(DADOS.map(r => r.eixo))].sort();
-  const selEixo = document.getElementById('filtroEixo');
-  eixos.forEach(e => {
-    const opt = document.createElement('option');
-    opt.value = e; opt.textContent = e;
-    selEixo.appendChild(opt);
-  });
+  const meses = [...new Set(DADOS.map(r => JSON.stringify({mes:r.mes,mesNome:r.mesNome})))].map(s=>JSON.parse(s)).sort((a,b)=>a.mes.localeCompare(b.mes));
+  meses.forEach(m => { const o = document.createElement('option'); o.value=m.mes; o.textContent=m.mesNome; document.getElementById('filtroMes').appendChild(o); });
+  [...new Set(DADOS.map(r=>r.turma))].sort().forEach(t => { const o=document.createElement('option'); o.value=t; o.textContent=t; document.getElementById('filtroTurma').appendChild(o); });
+  [...new Set(DADOS.map(r=>r.eixo))].sort().forEach(e => { const o=document.createElement('option'); o.value=e; o.textContent=e; document.getElementById('filtroEixo').appendChild(o); });
 }
 
 function aplicarFiltros() {
   const mes = document.getElementById('filtroMes').value;
   const turma = document.getElementById('filtroTurma').value;
   const eixo = document.getElementById('filtroEixo').value;
-
-  let filtrados = DADOS;
-  if (mes) filtrados = filtrados.filter(r => r.mes === mes);
-  if (turma) filtrados = filtrados.filter(r => r.turma === turma);
-  if (eixo) filtrados = filtrados.filter(r => r.eixo === eixo);
-
-  const stats = calcular(filtrados);
-  renderCards(stats);
-  renderGraficos(stats);
-  renderTabela(filtrados);
+  let f = DADOS;
+  if (mes) f = f.filter(r => r.mes === mes);
+  if (turma) f = f.filter(r => r.turma === turma);
+  if (eixo) f = f.filter(r => r.eixo === eixo);
+  const stats = calcular(f);
+  renderCards(stats); renderGraficos(stats); renderTabela(f);
 }
 
 function resetarFiltros() {
@@ -562,15 +1134,455 @@ function resetarFiltros() {
   aplicarFiltros();
 }
 
-// Data última atualização
-const datas = DADOS.map(r => r.data).sort();
-const ultima = datas[datas.length-1];
-document.getElementById('footerAtual').textContent =
-  `Última atualização dos dados: ${ultima ? ultima.split('-').reverse().join('/') : '—'} · Gamificação Total 2026 · Prof. Douglas Sousa`;
+// ═══════════════════════════════════════════════════
+// PAINEL METAS
+// ═══════════════════════════════════════════════════
+const PREP = new Set(['da','de','do','das','dos','e','a','o','em','na','no']);
+function cap(s) { return s.charAt(0).toUpperCase()+s.slice(1).toLowerCase(); }
+function nomeAb(n) {
+  const p = n.trim().split(' ').filter(x=>x);
+  if (p.length <= 2) return p.map(cap).join(' ');
+  const ini = p.slice(1,-1).filter(x=>!PREP.has(x.toLowerCase())).map(x=>x[0].toUpperCase()).join('');
+  return (ini?`${p[0]} ${ini} ${p[p.length-1]}`:`${p[0]} ${p[p.length-1]}`).split(' ').map(cap).join(' ');
+}
+function nivel(n) { if (n===null) return 'sn'; if (n<=4) return 'baixo'; if (n<=6) return 'medio'; return 'alto'; }
+function corNivel(n) { if (n===null) return '#555'; const v=nivel(n); return v==='baixo'?'#e24b4a':v==='medio'?'#e8832a':'#3db368'; }
+function meta10(r) { if (r===null) return null; if (r>=8) return r; return Math.min(10, Math.round(r*1.1*10)/10); }
+function statusA(ref, res) {
+  if (ref===null||res===null) return {l:'Aguardando',p:'p-gray'};
+  if (nivel(ref)==='alto'&&nivel(res)==='alto') return {l:'Meta atingida',p:'p-ok'};
+  if ((res-ref)/ref>=0.099) return {l:'Meta parcial atingida',p:'p-ok'};
+  if (res>=ref) return {l:'Crescimento',p:'p-warn'};
+  return {l:'Abaixo da meta',p:'p-danger'};
+}
 
-// Init
+const ALUNOS = ALUNOS_BASE.map(a => ({...a, s25: SARESP[a.nome]??null, pp:[null,null,null]}));
+
+function updateGeralBar() {
+  const vals = TURMAS_META.flatMap(t=>t.provas.filter(v=>v!==null));
+  if (!vals.length) { document.getElementById('gb-pct-text').textContent='Aguardando Prova Paulista'; return; }
+  const atual = vals.reduce((a,b)=>a+b,0)/vals.length;
+  const pct = Math.min(100,Math.max(0,Math.round(((atual-4.11)/(4.52-4.11))*100)));
+  document.getElementById('gb-fill').style.width = pct+'%';
+  document.getElementById('gb-pct-text').textContent = atual.toFixed(2)+' ('+pct+'% do caminho)';
+}
+
+function renderTurmas() {
+  const bim = document.getElementById('bimsel').value;
+  const BL = ['1º bimestre','2º bimestre','3º bimestre'];
+  const isM = bim==='media';
+  document.getElementById('bimlabel').textContent = isM?'Méd.':BL[+bim].split(' ')[0];
+  document.getElementById('bimsubLabel').textContent = isM?'Acumulada':'Prova Paulista';
+  updateGeralBar();
+
+  document.getElementById('turmas-list').innerHTML = TURMAS_META.map(t => {
+    let ref, sub;
+    if (isM) { const v=t.provas.filter(x=>x!==null); ref=v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length*10)/10:null; sub=v.length?`Média ${v.length} bimestre(s)`:'Aguardando dados'; }
+    else { ref=t.provas[+bim]; sub=`Prova Paulista ${BL[+bim]}`; }
+
+    const da = ALUNOS.filter(a=>a.turma===t.turma);
+    const nb=da.filter(a=>a.s25!==null&&a.s25<=4).length, nm=da.filter(a=>a.s25!==null&&a.s25>4&&a.s25<=6).length, na=da.filter(a=>a.s25!==null&&a.s25>6).length, nsn=da.filter(a=>a.s25===null).length;
+    const dots = `<div class="nivel-dots"><span class="ndot" style="background:#e24b4a"></span>${nb}&nbsp;<span class="ndot" style="background:#e8832a;margin-left:4px"></span>${nm}&nbsp;<span class="ndot" style="background:#3db368;margin-left:4px"></span>${na}${nsn?`&nbsp;<span style="color:var(--texto2)">S/N ${nsn}</span>`:''}</div>`;
+
+    if (ref===null) return `<div class="pb" style="border-left:4px solid ${t.cor}"><div class="pbh"><div><div class="pbl">${t.turma}</div><div class="pbs">SARESP 2025: ${t.s25.toFixed(1)} · Meta 2026: ${t.meta.toFixed(1)}</div></div><div class="pbv"><div class="pbn" style="color:var(--texto2)">—</div><div class="pbm">meta ${t.meta.toFixed(1)}</div></div></div><div class="await">Aguardando dados · ${sub}</div>${dots}</div>`;
+
+    const pct=Math.min(100,Math.round(ref/t.meta*100)), c=corNivel(ref), nv=nivel(ref);
+    let pc,pl;
+    if (nv==='alto'){pc='p-great';pl='Alto desempenho';}
+    else if(pct>=100){pc='p-ok';pl='Meta atingida';}
+    else if(pct>=70){pc='p-warn';pl='No caminho';}
+    else{pc='p-danger';pl='Atenção necessária';}
+    return `<div class="pb" style="border-left:4px solid ${t.cor}"><div class="pbh"><div><div class="pbl">${t.turma}</div><div class="pbs">${sub} · Meta: ${t.meta.toFixed(1)}</div></div><div class="pbv"><div class="pbn" style="color:${c}">${ref.toFixed(1)}</div><div class="pbm">meta ${t.meta.toFixed(1)}</div></div></div><div class="pbbg"><div class="pbfill" style="width:${pct}%;background:${c}"></div></div><div class="pbf"><span class="pill ${pc}">${pl}</span>${dots}<span>${pct}% · falta ${Math.max(0,Math.round((t.meta-ref)*10)/10)} pts</span></div></div>`;
+  }).join('');
+}
+
+function setFiltro(nv, btn) {
+  filtroNivel = nv;
+  document.querySelectorAll('.fnbtn').forEach(b => b.className='fnbtn');
+  btn.className = 'fnbtn active-'+nv;
+  renderAlunos();
+}
+
+function renderAlunos() {
+  const tf = document.getElementById('turmaselM').value;
+  const bim = parseInt(document.getElementById('bimalunosel').value);
+  let lista = tf ? ALUNOS.filter(a=>a.turma===tf) : ALUNOS;
+  if (filtroNivel!=='todos') lista=lista.filter(a=>filtroNivel==='sn'?a.s25===null:nivel(a.s25)===filtroNivel);
+  if (!lista.length) { document.getElementById('alunos-list').innerHTML='<div class="empty-filter">Nenhum aluno neste filtro.</div>'; return; }
+
+  document.getElementById('alunos-list').innerHTML = lista.map(a => {
+    let ref,res,rL,sL;
+    if(bim===-1){ref=a.s25;res=a.pp[0];rL='SARESP';sL='PP 1º';}
+    else{ref=a.pp[bim];res=bim<2?a.pp[bim+1]:null;rL=`PP ${bim+1}º`;sL=bim<2?`PP ${bim+2}º`:'—';}
+    const st=res!==null?statusA(ref,res):{l:'Aguardando',p:'p-gray'};
+    const rc=corNivel(ref), pct=ref!==null?Math.min(100,Math.round(ref/10*100)):0, mt=meta10(ref);
+    const tc = corTurma(a.turma);
+    const traj=a.pp.map(v=>`<div class="tj" style="background:${v!==null?corNivel(v):'var(--borda)'}" title="${v!==null?v.toFixed(1):'—'}"></div>`).join('');
+    const snB=ref===null?'<span class="sn-badge">S/N</span>':'';
+    return `<div class="ac" style="border-top:3px solid ${tc}"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div class="an" title="${a.nome}">${nomeAb(a.nome)}</div>${snB}</div><div class="at">${a.turma}</div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--texto2);margin-bottom:5px"><span>${rL}: <strong style="color:${rc}">${ref!==null?ref.toFixed(1):'S/N'}</strong></span><span>${sL}: <strong style="color:${corNivel(res)}">${res!==null?res.toFixed(1):'—'}</strong></span></div><div class="apbg"><div class="apf" style="width:${pct}%;background:${rc}"></div></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:5px"><span class="pill ${st.p}" style="font-size:10px">${st.l}</span><span style="font-size:11px;color:var(--texto2)">${mt!==null?'→ '+mt.toFixed(1):'—'}</span></div><div class="traj" title="PP1 · PP2 · PP3">${traj}</div></div>`;
+  }).join('');
+}
+
+function corMeta(pct) {
+  if (pct > 100) return '#5db8f7';
+  if (pct <= 40)  return '#e8832a';
+  if (pct <= 65)  return '#f5c518';
+  return '#3db368';
+}
+function pillMeta(pct) {
+  if (pct > 100) return 'p-great';
+  if (pct <= 40)  return 'p-danger';
+  if (pct <= 65)  return 'p-warn';
+  return 'p-ok';
+}
+function labelMeta(pct) {
+  if (pct > 100) return 'Meta superada!';
+  if (pct <= 40)  return 'Abaixo da meta';
+  if (pct <= 65)  return 'Em progresso';
+  return 'Meta atingida';
+}
+
+function renderCartas() {
+  const contagem = {};
+  DADOS.forEach(r => { contagem[r.eixo] = (contagem[r.eixo]||0) + 1; });
+
+  const legenda = `
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;background:var(--fundo2);border:1px solid var(--borda);border-radius:10px;padding:10px 16px;align-items:center;">
+      <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--texto2);margin-right:4px;">Legenda:</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--texto2)"><span style="width:12px;height:12px;border-radius:3px;background:#e8832a;display:inline-block"></span>0–40% · Abaixo da meta</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--texto2)"><span style="width:12px;height:12px;border-radius:3px;background:#f5c518;display:inline-block"></span>41–65% · Em progresso</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--texto2)"><span style="width:12px;height:12px;border-radius:3px;background:#3db368;display:inline-block"></span>66–100% · Meta atingida</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--texto2)"><span style="width:12px;height:12px;border-radius:3px;background:#5db8f7;display:inline-block"></span>+100% · Meta superada</span>
+    </div>`;
+
+  const cards = METAS_CARTAS.map(c => {
+    const atual = contagem[c.eixo] || 0;
+    const pct   = Math.round(atual / c.meta * 100);
+    const pctDisplay = pct;
+    const barWidth   = Math.min(100, pct);
+    const cor = corMeta(pct);
+    const pc  = pillMeta(pct);
+    const pl  = labelMeta(pct);
+    const excesso = atual > c.meta ? ` (+${atual - c.meta} acima da meta)` : `faltam ${Math.max(0, c.meta - atual)} cartas`;
+    return `<div class="carta-meta" style="border-left:4px solid ${cor}">
+      <div class="pbh">
+        <div>
+          <div class="pbl" style="color:${cor}">${c.eixo}</div>
+          <div class="pbs">Coleção ${c.colecao} · meta: ${c.meta} cartas (8/turma)</div>
+        </div>
+        <div class="pbv">
+          <div style="font-family:'Rajdhani',sans-serif;font-size:36px;font-weight:700;color:${cor}">${atual}</div>
+          <div class="pbm">de ${c.meta}</div>
+        </div>
+      </div>
+      <div class="pbbg"><div class="pbfill" style="width:${barWidth}%;background:${cor}"></div></div>
+      <div class="pbf">
+        <span class="pill ${pc}">${pl} · ${pctDisplay}%</span>
+        <span style="color:${cor}">${excesso}</span>
+      </div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('cartas-list').innerHTML = legenda + cards;
+}
+
+// ═══════════════════════════════════════════════════
+// HABILIDADES — % de acerto por turma/bimestre
+// Aguardando resultados da Prova Paulista (após dia 30)
+// Limiares ajustáveis conforme critério do Estado
+// ═══════════════════════════════════════════════════
+const HAB_LIMIAR = { consolidada: 70, construcao: 40 };
+
+const HABILIDADES = {
+  '7º ano': {
+    0: [
+      { cod: 'EF07HI01', desc: 'Identificar aspectos e formas de organização política em diferentes culturas da Antiguidade', pct: null },
+      { cod: 'EF07HI02', desc: 'Analisar o surgimento de cidades e os processos de urbanização na Antiguidade', pct: null },
+      { cod: 'EF07HI03', desc: 'Identificar as principais características dos impérios da Antiguidade e seus legados', pct: null },
+      { cod: 'EF07HI04', desc: 'Compreender o papel do comércio e das rotas comerciais no mundo antigo', pct: null },
+      { cod: 'EF07HI05', desc: 'Relacionar a expansão do Islamismo com transformações culturais e políticas medievais', pct: null },
+    ],
+    1: [
+      { cod: 'EF07HI01', desc: 'Identificar aspectos e formas de organização política em diferentes culturas da Antiguidade', pct: null },
+      { cod: 'EF07HI02', desc: 'Analisar o surgimento de cidades e os processos de urbanização na Antiguidade', pct: null },
+      { cod: 'EF07HI03', desc: 'Identificar as principais características dos impérios da Antiguidade e seus legados', pct: null },
+      { cod: 'EF07HI04', desc: 'Compreender o papel do comércio e das rotas comerciais no mundo antigo', pct: null },
+      { cod: 'EF07HI05', desc: 'Relacionar a expansão do Islamismo com transformações culturais e políticas medievais', pct: null },
+    ],
+    2: [
+      { cod: 'EF07HI01', desc: 'Identificar aspectos e formas de organização política em diferentes culturas da Antiguidade', pct: null },
+      { cod: 'EF07HI02', desc: 'Analisar o surgimento de cidades e os processos de urbanização na Antiguidade', pct: null },
+      { cod: 'EF07HI03', desc: 'Identificar as principais características dos impérios da Antiguidade e seus legados', pct: null },
+      { cod: 'EF07HI04', desc: 'Compreender o papel do comércio e das rotas comerciais no mundo antigo', pct: null },
+      { cod: 'EF07HI05', desc: 'Relacionar a expansão do Islamismo com transformações culturais e políticas medievais', pct: null },
+    ],
+  },
+  '8º ano': {
+    0: [
+      { cod: 'EF08HI01', desc: 'Identificar e contextualizar o colonialismo europeu e seus impactos nas Américas e África', pct: null },
+      { cod: 'EF08HI02', desc: 'Compreender as causas e consequências da escravidão no período moderno', pct: null },
+      { cod: 'EF08HI03', desc: 'Analisar as transformações políticas e econômicas do Iluminismo', pct: null },
+      { cod: 'EF08HI04', desc: 'Relacionar a Revolução Francesa com as transformações políticas do século XIX', pct: null },
+      { cod: 'EF08HI05', desc: 'Identificar o processo de independência das colônias americanas', pct: null },
+    ],
+    1: [
+      { cod: 'EF08HI01', desc: 'Identificar e contextualizar o colonialismo europeu e seus impactos nas Américas e África', pct: null },
+      { cod: 'EF08HI02', desc: 'Compreender as causas e consequências da escravidão no período moderno', pct: null },
+      { cod: 'EF08HI03', desc: 'Analisar as transformações políticas e econômicas do Iluminismo', pct: null },
+      { cod: 'EF08HI04', desc: 'Relacionar a Revolução Francesa com as transformações políticas do século XIX', pct: null },
+      { cod: 'EF08HI05', desc: 'Identificar o processo de independência das colônias americanas', pct: null },
+    ],
+    2: [
+      { cod: 'EF08HI01', desc: 'Identificar e contextualizar o colonialismo europeu e seus impactos nas Américas e África', pct: null },
+      { cod: 'EF08HI02', desc: 'Compreender as causas e consequências da escravidão no período moderno', pct: null },
+      { cod: 'EF08HI03', desc: 'Analisar as transformações políticas e econômicas do Iluminismo', pct: null },
+      { cod: 'EF08HI04', desc: 'Relacionar a Revolução Francesa com as transformações políticas do século XIX', pct: null },
+      { cod: 'EF08HI05', desc: 'Identificar o processo de independência das colônias americanas', pct: null },
+    ],
+  },
+  '9º ano': {
+    0: [
+      { cod: 'EF09HI01', desc: 'Analisar as causas e consequências das Guerras Mundiais', pct: null },
+      { cod: 'EF09HI02', desc: 'Compreender os processos de descolonização da África e Ásia', pct: null },
+      { cod: 'EF09HI03', desc: 'Identificar os impactos da Guerra Fria na geopolítica mundial', pct: null },
+      { cod: 'EF09HI04', desc: 'Analisar o processo de redemocratização no Brasil', pct: null },
+    ],
+    1: [
+      { cod: 'EF09HI01', desc: 'Analisar as causas e consequências das Guerras Mundiais', pct: null },
+      { cod: 'EF09HI02', desc: 'Compreender os processos de descolonização da África e Ásia', pct: null },
+      { cod: 'EF09HI03', desc: 'Identificar os impactos da Guerra Fria na geopolítica mundial', pct: null },
+      { cod: 'EF09HI04', desc: 'Analisar o processo de redemocratização no Brasil', pct: null },
+    ],
+    2: [
+      { cod: 'EF09HI01', desc: 'Analisar as causas e consequências das Guerras Mundiais', pct: null },
+      { cod: 'EF09HI02', desc: 'Compreender os processos de descolonização da África e Ásia', pct: null },
+      { cod: 'EF09HI03', desc: 'Identificar os impactos da Guerra Fria na geopolítica mundial', pct: null },
+      { cod: 'EF09HI04', desc: 'Analisar o processo de redemocratização no Brasil', pct: null },
+    ],
+  },
+  '1ª série': {
+    0: [
+      { cod: 'EM13CHS101', desc: 'Analisar e comparar diferentes formas de organização política e econômica', pct: null },
+      { cod: 'EM13CHS102', desc: 'Identificar dinâmicas das populações e seus impactos na transformação do espaço', pct: null },
+      { cod: 'EM13CHS201', desc: 'Compreender e analisar transformações e permanências em processos de socialização', pct: null },
+    ],
+    1: [
+      { cod: 'EM13CHS101', desc: 'Analisar e comparar diferentes formas de organização política e econômica', pct: null },
+      { cod: 'EM13CHS102', desc: 'Identificar dinâmicas das populações e seus impactos na transformação do espaço', pct: null },
+      { cod: 'EM13CHS201', desc: 'Compreender e analisar transformações e permanências em processos de socialização', pct: null },
+    ],
+    2: [
+      { cod: 'EM13CHS101', desc: 'Analisar e comparar diferentes formas de organização política e econômica', pct: null },
+      { cod: 'EM13CHS102', desc: 'Identificar dinâmicas das populações e seus impactos na transformação do espaço', pct: null },
+      { cod: 'EM13CHS201', desc: 'Compreender e analisar transformações e permanências em processos de socialização', pct: null },
+    ],
+  },
+  '2ª série': {
+    0: [
+      { cod: 'EM13CHS301', desc: 'Identificar e analisar as relações entre produção, trabalho e capital', pct: null },
+      { cod: 'EM13CHS302', desc: 'Analisar transformações do mundo do trabalho e seus impactos na sociedade', pct: null },
+      { cod: 'EM13CHS401', desc: 'Identificar e relacionar aspectos das culturas locais com processos globais', pct: null },
+    ],
+    1: [
+      { cod: 'EM13CHS301', desc: 'Identificar e analisar as relações entre produção, trabalho e capital', pct: null },
+      { cod: 'EM13CHS302', desc: 'Analisar transformações do mundo do trabalho e seus impactos na sociedade', pct: null },
+      { cod: 'EM13CHS401', desc: 'Identificar e relacionar aspectos das culturas locais com processos globais', pct: null },
+    ],
+    2: [
+      { cod: 'EM13CHS301', desc: 'Identificar e analisar as relações entre produção, trabalho e capital', pct: null },
+      { cod: 'EM13CHS302', desc: 'Analisar transformações do mundo do trabalho e seus impactos na sociedade', pct: null },
+      { cod: 'EM13CHS401', desc: 'Identificar e relacionar aspectos das culturas locais com processos globais', pct: null },
+    ],
+  },
+  '3ª série': {
+    0: [
+      { cod: 'EM13CHS501', desc: 'Analisar e discutir o papel dos movimentos sociais na construção da democracia', pct: null },
+      { cod: 'EM13CHS502', desc: 'Compreender transformações políticas e geopolíticas no mundo contemporâneo', pct: null },
+      { cod: 'EM13CHS601', desc: 'Identificar e analisar as relações entre direitos humanos e cidadania', pct: null },
+    ],
+    1: [
+      { cod: 'EM13CHS501', desc: 'Analisar e discutir o papel dos movimentos sociais na construção da democracia', pct: null },
+      { cod: 'EM13CHS502', desc: 'Compreender transformações políticas e geopolíticas no mundo contemporâneo', pct: null },
+      { cod: 'EM13CHS601', desc: 'Identificar e analisar as relações entre direitos humanos e cidadania', pct: null },
+    ],
+    2: [
+      { cod: 'EM13CHS501', desc: 'Analisar e discutir o papel dos movimentos sociais na construção da democracia', pct: null },
+      { cod: 'EM13CHS502', desc: 'Compreender transformações políticas e geopolíticas no mundo contemporâneo', pct: null },
+      { cod: 'EM13CHS601', desc: 'Identificar e analisar as relações entre direitos humanos e cidadania', pct: null },
+    ],
+  },
+};
+
+// ═══════════════════════════════════════════════════
+// LÓGICA HABILIDADES
+// ═══════════════════════════════════════════════════
+let habFiltro = 'todos';
+
+function habStatus(pct) {
+  if (pct === null) return 'aguardando';
+  if (pct >= HAB_LIMIAR.consolidada) return 'consolidada';
+  if (pct >= HAB_LIMIAR.construcao) return 'construcao';
+  return 'defasagem';
+}
+function habCor(pct) {
+  const s = habStatus(pct);
+  if (s === 'consolidada') return 'var(--verde-claro)';
+  if (s === 'construcao')  return '#f5a84a';
+  if (s === 'defasagem')   return '#f87171';
+  return 'var(--borda)';
+}
+function habLabel(pct) {
+  const s = habStatus(pct);
+  if (s === 'consolidada') return 'Consolidada';
+  if (s === 'construcao')  return 'Em construção';
+  if (s === 'defasagem')   return 'Defasagem';
+  return 'Aguardando';
+}
+function habPillCls(pct) {
+  const s = habStatus(pct);
+  if (s === 'consolidada') return 'hsp-c';
+  if (s === 'construcao')  return 'hsp-ec';
+  if (s === 'defasagem')   return 'hsp-d';
+  return 'hsp-n';
+}
+
+function setHabFiltro(f, btn) {
+  habFiltro = f;
+  document.querySelectorAll('.hfbtn').forEach(b => b.classList.remove('hactive'));
+  btn.classList.add('hactive');
+  renderHabilidades();
+}
+
+function renderHabilidades() {
+  const C  = HAB_LIMIAR.consolidada;
+  const EC = HAB_LIMIAR.construcao;
+  document.getElementById('ht-c-val').textContent  = `≥ ${C}%`;
+  document.getElementById('ht-ec-val').textContent = `${EC}–${C-1}%`;
+  document.getElementById('ht-d-val').textContent  = `< ${EC}%`;
+
+  const bim        = parseInt(document.getElementById('habbimsel').value);
+  const turmaFiltro = document.getElementById('habturmasel').value;
+  const turmas     = turmaFiltro ? [turmaFiltro] : Object.keys(HABILIDADES);
+  const TC = Object.fromEntries(Object.keys(HABILIDADES).map(t => [t, corTurma(t)]));
+
+  // Verifica se todos os dados são null para o bimestre selecionado
+  const todosPendentes = turmas.every(t => {
+    const habs = (HABILIDADES[t] && HABILIDADES[t][bim]) ? HABILIDADES[t][bim] : [];
+    return habs.every(h => h.pct === null);
+  });
+
+  const container = document.getElementById('hab-list');
+
+  if (todosPendentes) {
+    container.innerHTML = `
+      <div class="hab-await-box">
+        <div class="hab-await-icon">📋</div>
+        <strong>Resultados ainda não disponíveis</strong>
+        Aguardando a divulgação dos dados pelo Estado após o dia 30.<br>
+        Quando disponíveis, atualize os valores <code>pct</code> no objeto <code>HABILIDADES</code>.
+      </div>`;
+    return;
+  }
+
+  const blocos = turmas.map(turma => {
+    const habs = (HABILIDADES[turma] && HABILIDADES[turma][bim]) ? HABILIDADES[turma][bim] : [];
+    const tc = TC[turma] || 'var(--azul-claro)';
+
+    const comDados = habs.filter(h => h.pct !== null);
+    const nc  = comDados.filter(h => habStatus(h.pct) === 'consolidada').length;
+    const nec = comDados.filter(h => habStatus(h.pct) === 'construcao').length;
+    const nd  = comDados.filter(h => habStatus(h.pct) === 'defasagem').length;
+    const nag = habs.filter(h => h.pct === null).length;
+    const total = habs.length;
+
+    const pC  = total ? Math.round(nc/total*100)  : 0;
+    const pEC = total ? Math.round(nec/total*100) : 0;
+    const pD  = total ? Math.round(nd/total*100)  : 0;
+    const pAg = 100 - pC - pEC - pD;
+
+    let rows = habs;
+    if (habFiltro !== 'todos') {
+      rows = habs.filter(h => habFiltro === 'aguardando' ? h.pct === null : habStatus(h.pct) === habFiltro);
+    }
+    if (!rows.length && habFiltro !== 'todos') return '';
+
+    const rowsHTML = rows.map(h => `
+      <div class="hab-row">
+        <div class="hab-status-dot" style="background:${habCor(h.pct)}"></div>
+        <div class="hab-codigo">${h.cod}</div>
+        <div class="hab-desc">${h.desc}</div>
+        <div class="hab-bar-wrap">
+          <div class="hab-bar-bg">
+            <div class="hab-bar-fill" style="width:${h.pct !== null ? h.pct : 0}%;background:${habCor(h.pct)}"></div>
+          </div>
+        </div>
+        <div class="hab-pct" style="color:${habCor(h.pct)}">${h.pct !== null ? h.pct + '%' : '—'}</div>
+        <span class="hab-stat-pill ${habPillCls(h.pct)}">${habLabel(h.pct)}</span>
+      </div>`).join('');
+
+    const idKey = turma.replace(/\s/g,'_').replace(/[ºª]/g,'');
+    return `
+      <div class="hab-turma-block">
+        <div class="hab-turma-header" onclick="toggleHabTurma('${idKey}')">
+          <span class="hab-turma-nome" style="color:${tc}">${turma}</span>
+          <div class="hab-turma-stats">
+            ${nc  ? `<span class="hab-stat-pill hsp-c">✓ ${nc} consolidada${nc>1?'s':''}</span>` : ''}
+            ${nec ? `<span class="hab-stat-pill hsp-ec">⚡ ${nec} em construção</span>` : ''}
+            ${nd  ? `<span class="hab-stat-pill hsp-d">⚠ ${nd} defasagem</span>` : ''}
+            ${nag === total ? `<span class="hab-stat-pill hsp-n">Aguardando dados</span>` : ''}
+            <span class="hab-chevron open" id="chev-${idKey}">▼</span>
+          </div>
+        </div>
+        <div class="hab-turma-body open" id="body-${idKey}">
+          <div class="hab-summary-bar" title="${nc} consolidadas · ${nec} em construção · ${nd} defasagem">
+            <div class="hsb-seg" style="width:${pC}%;background:var(--verde-claro)"></div>
+            <div class="hsb-seg" style="width:${pEC}%;background:#f5a84a"></div>
+            <div class="hsb-seg" style="width:${pD}%;background:#f87171"></div>
+            <div class="hsb-seg" style="width:${pAg}%;background:var(--fundo2)"></div>
+          </div>
+          ${rowsHTML || '<div style="text-align:center;color:var(--texto2);font-size:13px;padding:.5rem 0">Nenhuma habilidade neste filtro.</div>'}
+        </div>
+      </div>`;
+  }).join('');
+
+  container.innerHTML = blocos || '<div class="empty-filter">Nenhuma habilidade encontrada.</div>';
+}
+
+function toggleHabTurma(id) {
+  const body = document.getElementById('body-' + id);
+  const chev = document.getElementById('chev-' + id);
+  if (!body) return;
+  body.classList.toggle('open');
+  if (chev) chev.classList.toggle('open');
+}
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+// Popular select turmas metas
+[...new Set(ALUNOS.map(a=>a.turma))].forEach(t => {
+  const o=document.createElement('option'); o.value=t; o.textContent=t;
+  document.getElementById('turmaselM').appendChild(o);
+});
+
+// Popular select turmas habilidades
+Object.keys(HABILIDADES).forEach(t => {
+  const o=document.createElement('option'); o.value=t; o.textContent=t;
+  document.getElementById('habturmasel').appendChild(o);
+});
+
+// Footer
+const datas = DADOS.map(r=>r.data).sort();
+document.getElementById('footerAtual').textContent =
+  `Última atualização: ${datas[datas.length-1]?.split('-').reverse().join('/') || '—'} · Gamificação Total 2026 · Prof. Douglas Sousa`;
+
 popularFiltros();
 aplicarFiltros();
+renderTurmas();
+renderAlunos();
+renderCartas();
+renderHabilidades();
+updateGeralBar();
 </script>
 </body>
 </html>
