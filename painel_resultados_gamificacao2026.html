@@ -577,7 +577,30 @@ tbody td { padding: 10px 16px; font-size: 13px; color: var(--texto); }
 .ld { width: 10px; height: 10px; border-radius: 50%; }
 
 /* Grid alunos */
-.agrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 8px; }
+.agrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); gap: 8px; }
+.agrid > * { min-width: 0; } /* prevent overflow blowout */
+
+/* ── MOBILE ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  /* Cards de aluno: 2 colunas no celular */
+  .agrid { grid-template-columns: 1fr 1fr; gap: 6px; }
+  /* Habilidades: ocultar barra, texto menor */
+  .hab-bar-wrap { display: none; }
+  .hab-row { flex-wrap: wrap; gap: 4px; }
+  .hab-desc { font-size: 11px; }
+  /* Sub-tabs: scroll horizontal */
+  .sub-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
+  .sub-tab  { white-space: nowrap; flex-shrink: 0; }
+  /* Barra de progresso: texto menor */
+  .pb { padding: 12px 14px; }
+  .pbl { font-size: 14px; }
+  .pbs { font-size: 10px; }
+  /* Metas-wrap: sem padding lateral excessivo */
+  .metas-wrap { padding: 12px 10px; }
+  /* Cards individuais: nota menor */
+  .ac { padding: 10px; }
+  .an { font-size: 12px; }
+}
 .ac {
   background: var(--card);
   border: 1px solid var(--borda);
@@ -734,11 +757,6 @@ tbody td { padding: 10px 16px; font-size: 13px; color: var(--texto); }
 }
 .hab-await-box .hab-await-icon { font-size: 32px; margin-bottom: 10px; }
 .hab-await-box strong { display: block; color: var(--texto); margin-bottom: 4px; }
-@media (max-width: 540px) {
-  .hab-bar-wrap { display: none; }
-  .hab-codigo { min-width: 70px; font-size: 10px; }
-}
-
 /* Footer */
 .footer {
   text-align: center;
@@ -901,7 +919,7 @@ tbody td { padding: 10px 16px; font-size: 13px; color: var(--texto); }
         <span style="display:flex;align-items:center;gap:5px;color:var(--texto2)"><span style="width:10px;height:10px;border-radius:3px;background:#3db368;display:inline-block"></span>Alto desempenho &gt;6,0</span>
         <span style="display:flex;align-items:center;gap:5px;color:var(--texto2)"><span style="width:10px;height:10px;border-radius:3px;background:var(--borda);display:inline-block"></span>S/N sem nota</span>
       </div>
-      <div id="alunos-list" class="agrid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))"></div>
+      <div id="alunos-list" class="agrid"></div>
     </div>
 
     <!-- SUB: CARTAS -->
@@ -962,7 +980,7 @@ tbody td { padding: 10px 16px; font-size: 13px; color: var(--texto); }
 </div><!-- /secMetas -->
 
 <div class="secao" id="secFilosoc">
-  <div class="metas-wrap" style="max-width:100%">
+  <div class="metas-wrap">
     <div class="sub-tabs" style="margin-bottom:20px">
       <button class="sub-tab" style="background:var(--roxo);border-color:var(--roxo);color:#fff" id="fsTab0" onclick="mostrarFSTab(0,this)">📘 Filosofia · 1ª série</button>
       <button class="sub-tab" style="border-color:var(--borda)" id="fsTab1" onclick="mostrarFSTab(1,this)">📗 Sociologia · 2ª série</button>
@@ -970,6 +988,8 @@ tbody td { padding: 10px 16px; font-size: 13px; color: var(--texto); }
 
     <!-- FILOSOFIA -->
     <div id="fs-filo">
+      <!-- Bloco Por Turma — igual formato de História -->
+      <div id="filo-turma-block" style="margin-bottom:20px"></div>
       <!-- Legenda -->
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;background:var(--fundo2);border:1px solid var(--borda);border-radius:10px;padding:10px 16px;align-items:center;font-size:12px;">
         <span style="font-weight:700;color:var(--texto2);text-transform:uppercase;letter-spacing:1px;font-size:10px">Boletim SARESP:</span>
@@ -978,7 +998,7 @@ tbody td { padding: 10px 16px; font-size: 13px; color: var(--texto); }
         <span style="display:flex;align-items:center;gap:5px;color:var(--texto2)"><span style="width:10px;height:10px;border-radius:3px;background:#3db368;display:inline-block"></span>Alto &gt;6,0</span>
       </div>
       <!-- Cards por aluno -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:8px;margin-bottom:20px" id="filo-alunos"></div>
+      <div class="agrid" id="filo-alunos" style="margin-bottom:20px"></div>
       <!-- Botão Acompanhamento -->
       <details style="margin-bottom:20px">
         <summary style="cursor:pointer;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--roxo-claro);padding:10px 14px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.3);border-radius:8px;list-style:none;display:flex;align-items:center;gap:8px">
@@ -997,6 +1017,8 @@ tbody td { padding: 10px 16px; font-size: 13px; color: var(--texto); }
 
     <!-- SOCIOLOGIA -->
     <div id="fs-soc" style="display:none">
+      <!-- Bloco Por Turma — igual formato de História -->
+      <div id="soc-turma-block" style="margin-bottom:20px"></div>
       <!-- Legenda -->
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;background:var(--fundo2);border:1px solid var(--borda);border-radius:10px;padding:10px 16px;align-items:center;font-size:12px;">
         <span style="font-weight:700;color:var(--texto2);text-transform:uppercase;letter-spacing:1px;font-size:10px">Boletim SARESP:</span>
@@ -1005,7 +1027,7 @@ tbody td { padding: 10px 16px; font-size: 13px; color: var(--texto); }
         <span style="display:flex;align-items:center;gap:5px;color:var(--texto2)"><span style="width:10px;height:10px;border-radius:3px;background:#3db368;display:inline-block"></span>Alto &gt;6,0</span>
       </div>
       <!-- Cards por aluno -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:8px;margin-bottom:20px" id="soc-alunos"></div>
+      <div class="agrid" id="soc-alunos" style="margin-bottom:20px"></div>
       <!-- Botão Acompanhamento -->
       <details style="margin-bottom:20px">
         <summary style="cursor:pointer;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#34d399;padding:10px 14px;background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.3);border-radius:8px;list-style:none;display:flex;align-items:center;gap:8px">
@@ -1185,7 +1207,84 @@ function notaNivel(n) {
   return 'Ótimo';
 }
 
+function renderDiscTurmaBlock(containerId, notas, turma, cor, metaGamif, s25, metaOuro, metaDia, discNome) {
+  const vals = Object.entries(notas)
+    .filter(([n]) => ALUNOS.some(a => a.nome === n && a.turma === turma))
+    .map(([, v]) => v).filter(v => v !== null);
+  if (!vals.length) { document.getElementById(containerId).innerHTML = ''; return; }
+
+  const pp1    = Math.round(vals.reduce((a,b)=>a+b,0)/vals.length * 100)/100;
+  const nalunos = vals.length;
+  const nb = vals.filter(v=>v<4).length;
+  const nm = vals.filter(v=>v>=4&&v<=6).length;
+  const na = vals.filter(v=>v>6).length;
+  const dots = `<div class="nivel-dots">
+    <span class="ndot" style="background:#e24b4a"></span>${nb}&nbsp;
+    <span class="ndot" style="background:#e8832a;margin-left:4px"></span>${nm}&nbsp;
+    <span class="ndot" style="background:#3db368;margin-left:4px"></span>${na}
+  </div>`;
+
+  // Barra única — Meta SEDUC Ouro/Diamante
+  const isDia  = pp1 >= metaDia, isOuro = pp1 >= metaOuro;
+  const c2     = isDia ? '#5db8f7' : isOuro ? '#f5c518' : '#e8832a';
+  const lbl2   = isDia ? '💎 Meta Diamante atingida' : isOuro ? '🥇 Meta Ouro atingida' : '🟠 Abaixo das metas SEDUC';
+  const pct2   = Math.min(100, Math.round(pp1/metaDia*100));
+  const pctO2  = Math.min(100, Math.round(metaOuro/metaDia*100));
+  const bar2   = `<div>
+    <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--texto2);margin-bottom:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">
+      <span>🏆 Meta SEDUC 2026</span>
+      <span style="color:${c2}">${pp1.toFixed(2)} / 💎${metaDia.toFixed(1)}</span>
+    </div>
+    <div class="pbbg" style="position:relative">
+      <div class="pbfill" style="width:${pct2}%;background:${c2}"></div>
+      <div style="position:absolute;top:-3px;bottom:-3px;left:${pctO2}%;width:2px;background:#f5c518;border-radius:1px" title="Meta Ouro: ${metaOuro}"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:11px;margin-top:3px;flex-wrap:wrap;gap:4px">
+      <span class="pill ${isDia?'p-great':isOuro?'p-warn':'p-danger'}" style="${isDia?'background:rgba(93,184,247,0.2);color:#5db8f7':''}">${lbl2}</span>
+      <span style="color:var(--texto2)">🥇${metaOuro.toFixed(1)} &nbsp; 💎${metaDia.toFixed(1)}</span>
+    </div>
+  </div>`;
+
+  document.getElementById(containerId).innerHTML = `<div class="pb" style="border-left:4px solid ${cor}">
+    <div class="pbh">
+      <div><div class="pbl">${discNome} · ${turma}</div><div class="pbs">Base SARESP: ${s25.toFixed(1)} · Média PP1: ${pp1.toFixed(2)} · ${nalunos} alunos</div></div>
+      <div class="pbv">${dots}</div>
+    </div>
+    ${bar2}
+  </div>`;
+}
+
 function renderFiloSOC() {
+  // Metas SEDUC Filosofia e Sociologia
+  const FILO_OURO = 4.9, FILO_DIA = 5.1;
+  const SOC_OURO  = 4.4, SOC_DIA  = 4.6;
+
+  function metaBar(nota, metaOuro, metaDia, corTurma) {
+    if (nota === null) return `<div style="height:6px;background:var(--fundo2);border-radius:99px;margin-bottom:10px;position:relative"><div style="position:absolute;top:-3px;bottom:-3px;left:${Math.min(100,Math.round(metaOuro/10*100))}%;width:2px;background:#f5c518;border-radius:1px" title="Ouro: ${metaOuro}"></div><div style="position:absolute;top:-3px;bottom:-3px;left:${Math.min(100,Math.round(metaDia/10*100))}%;width:2px;background:#5db8f7;border-radius:1px" title="Diamante: ${metaDia}"></div></div>`;
+    const isDia  = nota >= metaDia;
+    const isOuro = nota >= metaOuro;
+    const cor    = isDia ? '#5db8f7' : isOuro ? '#f5c518' : '#e8832a';
+    const pct    = Math.min(100, Math.round(nota/10*100));
+    const pctO   = Math.min(100, Math.round(metaOuro/10*100));
+    const pctD   = Math.min(100, Math.round(metaDia/10*100));
+    const badge  = isDia ? '💎' : isOuro ? '🥇' : '';
+    return `<div style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--texto2);margin-bottom:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">
+        <span>Meta SEDUC</span>
+        <span style="color:${cor}">${badge} ${isDia?'Diamante':isOuro?'Ouro':'Abaixo'}</span>
+      </div>
+      <div style="height:6px;background:var(--fundo2);border-radius:99px;position:relative;overflow:visible">
+        <div style="height:100%;width:${pct}%;background:${cor};border-radius:99px"></div>
+        <div style="position:absolute;top:-3px;bottom:-3px;left:${pctO}%;width:2px;background:#f5c518;border-radius:1px" title="🥇 Ouro: ${metaOuro}"></div>
+        <div style="position:absolute;top:-3px;bottom:-3px;left:${pctD}%;width:2px;background:#5db8f7;border-radius:1px" title="💎 Diamante: ${metaDia}"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--texto2);margin-top:2px">
+        <span style="color:#f5c518">🥇${metaOuro}</span>
+        <span style="color:#5db8f7">💎${metaDia}</span>
+      </div>
+    </div>`;
+  }
+
   // ── FILOSOFIA 1ª série ──────────────────────────────
   const filoAlunos = ALUNOS.filter(a => a.turma==='1ª série' && a.nome!=='NAN');
   const filoCards = filoAlunos
@@ -1196,6 +1295,7 @@ function renderFiloSOC() {
     const cor = corSaresp(nota), pil = pillSaresp(nota), lbl = labelSaresp(nota);
     const pct = nota !== null ? Math.min(100, Math.round(nota/10*100)) : 0;
     return `<div class="ac" style="border-top:3px solid ${CORES_POR_TURMA['1ª série']}">
+      ${metaBar(nota, FILO_OURO, FILO_DIA, CORES_POR_TURMA['1ª série'])}
       <div class="an" title="${nome}">${nomeAb(nome)}</div>
       <div class="at">1ª série</div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0 6px">
@@ -1216,6 +1316,7 @@ function renderFiloSOC() {
     const cor = corSaresp(nota), pil = pillSaresp(nota), lbl = labelSaresp(nota);
     const pct = nota !== null ? Math.min(100, Math.round(nota/10*100)) : 0;
     return `<div class="ac" style="border-top:3px solid ${CORES_POR_TURMA['2ª série']}">
+      ${metaBar(nota, SOC_OURO, SOC_DIA, CORES_POR_TURMA['2ª série'])}
       <div class="an" title="${nome}">${nomeAb(nome)}</div>
       <div class="at">2ª série</div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0 6px">
@@ -1225,6 +1326,12 @@ function renderFiloSOC() {
       <div class="apbg"><div class="apf" style="width:${pct}%;background:${cor}"></div></div>
     </div>`;
   }).join('');
+
+  // ── Bloco Por Turma ───────────────────────────────────
+  // Filosofia 1ª série: meta gamif=5.5, s25=4.4, ouro=4.9, dia=5.1
+  renderDiscTurmaBlock('filo-turma-block', FILO_NOTAS, '1ª série', CORES_POR_TURMA['1ª série'], 5.5, 4.4, 4.9, 5.1, 'Filosofia');
+  // Sociologia 2ª série: meta gamif=4.8, s25=3.9, ouro=4.4, dia=4.6
+  renderDiscTurmaBlock('soc-turma-block',  SOC_NOTAS,  '2ª série', CORES_POR_TURMA['2ª série'], 4.8, 3.9, 4.4, 4.6, 'Sociologia');
 
   // ── Habilidades com % acerto + links ──────────────────
   renderHabDisciplina('filo-hab', '1ª série', 'Filosofia', CORES_POR_TURMA['1ª série']);
@@ -1473,6 +1580,61 @@ function renderTurmas() {
             <span style="color:var(--texto2)">🥇${t.metaOuro.toFixed(1)} &nbsp; 💎${t.metaDiamante.toFixed(1)}</span>
           </div>
         </div>`;
+    })();
+
+    // Barra 3: Filosofia (1ª série) ou Sociologia (2ª série)
+    const metaBar3 = (() => {
+      if (t.turma === '1ª série') {
+        const vals = Object.entries(FILO_NOTAS).filter(([n]) => ALUNOS.some(a=>a.nome===n&&a.turma==='1ª série')).map(([,v])=>v);
+        if (!vals.length) return '';
+        const media = Math.round(vals.reduce((a,b)=>a+b,0)/vals.length * 100)/100;
+        const ouro = 4.9, dia = 5.1;
+        const isDia = media >= dia, isOuro = media >= ouro;
+        const cor = isDia ? '#5db8f7' : isOuro ? '#f5c518' : '#e8832a';
+        const pct = Math.min(100, Math.round(media/dia*100));
+        const pctO = Math.min(100, Math.round(ouro/dia*100));
+        const label = isDia ? '💎 Diamante' : isOuro ? '🥇 Ouro' : '🟠 Abaixo';
+        return `<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--borda)">
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--roxo-claro);margin-bottom:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">
+            <span>📘 Filosofia · Meta SEDUC</span>
+            <span style="color:${cor}">${media.toFixed(2)} / 💎${dia}</span>
+          </div>
+          <div class="pbbg" style="position:relative">
+            <div class="pbfill" style="width:${pct}%;background:${cor}"></div>
+            <div style="position:absolute;top:-3px;bottom:-3px;left:${pctO}%;width:2px;background:#f5c518;border-radius:1px" title="Meta Ouro: ${ouro}"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-top:3px;flex-wrap:wrap;gap:4px">
+            <span class="pill ${isDia?'p-great':isOuro?'p-warn':'p-danger'}" style="${isDia?'background:rgba(93,184,247,0.2);color:#5db8f7':''}">${label}</span>
+            <span style="color:var(--texto2)">🥇${ouro} &nbsp; 💎${dia}</span>
+          </div>
+        </div>`;
+      }
+      if (t.turma === '2ª série') {
+        const vals = Object.entries(SOC_NOTAS).filter(([n]) => ALUNOS.some(a=>a.nome===n&&a.turma==='2ª série')).map(([,v])=>v);
+        if (!vals.length) return '';
+        const media = Math.round(vals.reduce((a,b)=>a+b,0)/vals.length * 100)/100;
+        const ouro = 4.4, dia = 4.6;
+        const isDia = media >= dia, isOuro = media >= ouro;
+        const cor = isDia ? '#5db8f7' : isOuro ? '#f5c518' : '#e8832a';
+        const pct = Math.min(100, Math.round(media/dia*100));
+        const pctO = Math.min(100, Math.round(ouro/dia*100));
+        const label = isDia ? '💎 Diamante' : isOuro ? '🥇 Ouro' : '🟠 Abaixo';
+        return `<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--borda)">
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:#34d399;margin-bottom:3px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">
+            <span>📗 Sociologia · Meta SEDUC</span>
+            <span style="color:${cor}">${media.toFixed(2)} / 💎${dia}</span>
+          </div>
+          <div class="pbbg" style="position:relative">
+            <div class="pbfill" style="width:${pct}%;background:${cor}"></div>
+            <div style="position:absolute;top:-3px;bottom:-3px;left:${pctO}%;width:2px;background:#f5c518;border-radius:1px" title="Meta Ouro: ${ouro}"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-top:3px;flex-wrap:wrap;gap:4px">
+            <span class="pill ${isDia?'p-great':isOuro?'p-warn':'p-danger'}" style="${isDia?'background:rgba(93,184,247,0.2);color:#5db8f7':''}">${label}</span>
+            <span style="color:var(--texto2)">🥇${ouro} &nbsp; 💎${dia}</span>
+          </div>
+        </div>`;
+      }
+      return '';
     })();
 
     return `<div class="pb" style="border-left:4px solid ${t.cor}">
