@@ -1135,24 +1135,36 @@ const SOC_NOTAS = {"VITORIA SANTOS SCATOLIN": 10.0, "TUANNY ARIADNE BARRIONUEVO 
 const SOC2_NOTAS = {"LIVIA GONÇALVES SIMÕES": 0.0, "MATHEUS ORTEGA CERAVOLO INCROCCI": 4.0, "MARIANA VICTORIA ASSIS DE MELLO": 6.0, "DANILO RODRIGUES FORTES": 2.0, "LUAN TAVARES FLORIDO": 6.0, "TUANNY ARIADNE BARRIONUEVO RODRIGUES": 6.0, "PAULO RICARDO MACHADO DE CARVALHO": 10.0, "MARIA CECILIA LOPES MARTINS": 8.0, "VALBER RAYMUNDO FRANCA": 10.0, "SOPHIA DE SOUZA CARVALHO": 0.0, "LUANY GABRIELLY MARQUES ALVES": 10.0, "ISABELLY CAROLINE PEDROSO PEREIRA": 4.0, "VITORIA SANTOS SCATOLIN": 8.0, "TONNY SANTOS SCATOLIN": 6.0, "RENATO BARCELLOS GUERREIRO": 6.0};
 
 const TURMAS_META = [
-  { turma: '6º ano', s25: 5.1, meta: 5.2, provas: [5.3, 5.05, null], pp1: 5.3, pp2: 5.05, metaOuro: 5.6, metaDiamante: 5.9, cor: CORES_POR_TURMA['6º ano'] },
-  { turma: '7º ano', s25: 2.7, meta: 4.5, provas: [4.44, 5.88, null], pp1: 4.44, pp2: 5.88, metaOuro: 3.3, metaDiamante: 3.7, cor: CORES_POR_TURMA['7º ano'] },
-  { turma: '8º ano', s25: 3.7, meta: 4.1, provas: [5.07, 3.67, null], pp1: 5.07, pp2: 3.67, metaOuro: 4.3, metaDiamante: 4.6, cor: CORES_POR_TURMA['8º ano'] },
-  { turma: '9º ano', s25: 5.8, meta: 6.0, provas: [4.39, 2.61, null], pp1: 4.39, pp2: 2.61, metaOuro: 6.3, metaDiamante: 6.6, cor: CORES_POR_TURMA['9º ano'] },
-  { turma: '1ª série', s25: 5.3, meta: 5.5, provas: [5.33, 4.21, null], pp1: 5.33, pp2: 4.21, metaOuro: 5.7, metaDiamante: 6.0, cor: CORES_POR_TURMA['1ª série'] },
-  { turma: '2ª série', s25: 2.8, meta: 4.8, provas: [4.8, 4.53, null], pp1: 4.8, pp2: 4.53, metaOuro: 3.3, metaDiamante: 3.6, cor: CORES_POR_TURMA['2ª série'] },
-  { turma: '3ª série', s25: 3.4, meta: 3.6, provas: [5.0, 4.19, null], pp1: 5.0, pp2: 4.19, metaOuro: 3.9, metaDiamante: 4.2, cor: CORES_POR_TURMA['3ª série'] },
+  { turma: '6º ano', s25: 5.1, meta: 5.2, provas: [5.3, 5.05, 5.05], pp1: 5.3, pp2: 5.05, metaOuro: 5.6, metaDiamante: 5.9, cor: CORES_POR_TURMA['6º ano'] },
+  { turma: '7º ano', s25: 2.7, meta: 4.5, provas: [4.44, 5.88, 4.93], pp1: 4.44, pp2: 5.88, metaOuro: 3.3, metaDiamante: 3.7, cor: CORES_POR_TURMA['7º ano'] },
+  { turma: '8º ano', s25: 3.7, meta: 4.1, provas: [5.07, 3.67, 3.88], pp1: 5.07, pp2: 3.67, metaOuro: 4.3, metaDiamante: 4.6, cor: CORES_POR_TURMA['8º ano'] },
+  { turma: '9º ano', s25: 5.8, meta: 6.0, provas: [4.39, 2.61, 4.37], pp1: 4.39, pp2: 2.61, metaOuro: 6.3, metaDiamante: 6.6, cor: CORES_POR_TURMA['9º ano'] },
+  { turma: '1ª série', s25: 5.3, meta: 5.5, provas: [5.33, 4.21, 6.67], pp1: 5.33, pp2: 4.21, metaOuro: 5.7, metaDiamante: 6.0, cor: CORES_POR_TURMA['1ª série'] },
+  { turma: '2ª série', s25: 2.8, meta: 4.8, provas: [4.8, 4.53, 6.27], pp1: 4.8, pp2: 4.53, metaOuro: 3.3, metaDiamante: 3.6, cor: CORES_POR_TURMA['2ª série'] },
+  { turma: '3ª série', s25: 3.4, meta: 3.6, provas: [5.0, 4.19, 5.24], pp1: 5.0, pp2: 4.19, metaOuro: 3.9, metaDiamante: 4.2, cor: CORES_POR_TURMA['3ª série'] },
 ];
 
 let BIMESTRE_ATUAL = 'media';
 const BIMESTRE_LABELS = { media: 'Média atual', 0: 'PP1', 1: 'PP2', 2: 'PP3' };
 const BIMESTRE_TITULOS = { media: 'Média das provas realizadas', 0: '1º Bimestre 2026', 1: '2º Bimestre 2026', 2: '3º Bimestre 2026' };
-const HIST_NOTAS_BIMESTRES = [PP1_NOTAS, PP2_NOTAS, {}];
-const FILO_NOTAS_BIMESTRES = [FILO_NOTAS, FILO2_NOTAS, {}];
-const SOC_NOTAS_BIMESTRES = [SOC_NOTAS, SOC2_NOTAS, {}];
+const PP3_NOTAS = {"ANDRE ALVES CARNEIRO": 9.0, "ELLEN PEREIRA MIRANDA": 2.0, "EVAIR RAYMUNDO FRAN\u00c7A": 8.0, "HELOISA MARTINS LIMA": 5.0, "JO\u00c3O PEDRO MANCIO GROPPO": 7.0, "JO\u00c3O VITOR RODRIGUES FORTES": 3.0, "JOAQUIM LIVRAMENTO OLIVEIRA": 4.0, "JULIA CARNEIRO LOPES": 5.0, "KAIQUE RIBEIRO BORGES": 6.0, "LUAN DE LIMA EN\u00c9IA RAPOSO": 6.0, "LUCCA PEGORETTI MARCONDES": 2.0, "LUIZA MANOELA PAZINI LOUREN\u00c7O": 8.0, "MANUELLA LARA RIBEIRO": 8.0, "MARCOS MACEDO DE SOUSA": 9.0, "MARIA ALICE SILVA PRADO PELLICCIARI": 7.0, "MARIA ESTELA DE ANDRADE SILVA": 2.0, "MARIA FERNANDA DOS SANTOS RIBEIRO": 4.0, "MIGUEL NEVES MEIRA DE CASTRO": 1.0, "MURILLO GUILHERME RODRIGUES FRAN\u00c7A": 0.0, "ANA VIT\u00d3RIA PACHECO BARBOZA": 3.0, "FELIPE MILER SOUSA REIS": 10.0, "GUILHERME RAFAEL DE OLIVEIRA UCHISE": 3.0, "GUSTAVO GABRIEL DE OLIVEIRA UCHISE": 3.0, "JHONATAN ALVES VIANA DE SOUZA": 5.0, "JULIA ANZOLIN MACEDO DA CRUZ DE SOUSA": 9.0, "LUCY VIEIRA REIS": 4.0, "MANUELA FERREIRA ROSSETTO": 2.0, "MIKAELL PIRES CUNHA": 5.0, "PIERRE DE ALMEIDA ASSUNCAO": 8.0, "RAFAEL DE JESUS NASCIMENTO DE ANDRADE": 7.0, "RAFAELLA MAIELO DE CARVALHO": 5.0, "RUAN RIBEIRO DA SILVA": 1.0, "SAMUEL AMORIM DOS SANTOS": 6.0, "TAMYRIS JULIANA CHIFARELLI BAPTISTA DA SILVA": 3.0, "ARTHUR PIETRO MIRANDA DIAS DOS SANTOS": 7.0, "DUSTTIN JESUINO PEREJON AMORIM": 9.0, "FERNANDO HENRIQUE DE SOUZA CARVALHO": 3.0, "GABRIELLY DA CUNHA SILVA": 4.0, "GABRIELLY DE OLIVEIRA UCHISE": 3.0, "HENRIQUE DE SOUZA AGUIAR": 3.0, "IASMIN ALVES VIANA DE SOUSA": 4.0, "LUAN RODRIGUES BORGES": 3.0, "LUIZ OTAVIO DE LIMA AGUIAR LEHMANN": 6.0, "MANUELLA SANTANA CUNHA": 2.0, "MARCELO GIOVANINI SILVA": 0.0, "PAULO HENRIK MARTINS FERRARI": 4.0, "PEDRO PEREIRA DE CARVALHO": 4.0, "RAFAEL RIBEIRO FENDER": 4.0, "SILAS INACIO MENDES DA SILVA": 0.0, "THEO PEREIRA LISBOA LOPES": 6.0, "DANIELLY VITORIA BRITO DA SILVA": 7.0, "ENZO MARTINS DOS SANTOS": 2.0, "FELIPE JOSE MOLINARI SOUZA": 7.0, "GABRIEL DE CAMPOS PONTES": 6.0, "HENRIQUE MULLER RIBEIRO DA SILVA": 3.0, "ISABELA LUISY DE SOUZA PEREIRA": 4.0, "IZABELA SCATOLIN ANDRADE": 5.0, "JULIA REIS DE SOUZA": 4.0, "LORRANY EMANUELE SILVA DE MORAIS": 4.0, "LUARA TAVARES FLORIDO": 4.0, "LUCAS DA SILVA ALVES": 3.0, "LUIS CAETANO ESTEVAM FACTORE SELLA": 6.0, "LUIS GABRIEL SARDINHA DE LIMA": 3.0, "MAXMILIANO MENDES DA SILVA": 0.0, "PEDRO ERNANDE FARIAS LUCIO": 5.0, "RAPHAELLA CARNEIRO SOUZA": 3.0, "RAYSSA STEFANY OLIVEIRA DA SILVA": 7.0, "THAYLA FRANCA OLIVEIRA": 5.0, "VINICIUS TEODORO DA CUNHA": 5.0, "ACAUA BRUNO PEREIRA MIRANDA": 7.5, "AILTON GOMES PUPO NETTO": 3.8, "ANNA CAROLINA LOPES BRITO": 10.0, "ARTHUR RIPARI DE ANDRADE": 2.5, "CAMILY LETICIA CHIFARELLI BAPTISTA DA SILVA": 1.3, "HENRIQUE FERREIRA CARNEIRO": 3.8, "ISAIAS RODRIGUES DE SOUZA RIBEIRO": 8.8, "JENNIFER LARA BARBOSA": 3.8, "JO\u00c3O PEDRO MOLINARI SOUZA": 7.5, "JOAO VICTOR DA SILVA MARTINS": 6.3, "KAUA ARTILIA MIRANDA": 7.5, "KAYKE FERREIRA DA SILVA": 2.5, "LUCIANO RODRIGUES MARQUES": 10.0, "MARIA CLARA SOUZA PERES ALVES": 10.0, "MARIA LUIZA SOUZA ROCHA DA SILVA": 7.5, "PABLO BERTHO DE SOUZA": 8.8, "PEDRO HENRIQUE DA SILVA RODRIGUES": 6.3, "RAFAEL RIBEIRO DA SILVA": 8.8, "VITORIA LUIZA DIPOLDI AGUIAR": 10.0, "ANDRESSA VITORIA ARAUJO DE LIMA": 2.0, "DANILO RODRIGUES FORTES": 6.0, "ISABELLY CAROLINE PEDROSO PEREIRA": 2.0, "LUAN TAVARES FLORIDO": 6.0, "LUANY GABRIELLY MARQUES ALVES": 8.0, "MARIA CECILIA LOPES MARTINS": 10.0, "MARIANA VICTORIA ASSIS DE MELLO": 10.0, "MATHEUS ORTEGA CERAVOLO INCROCCI": 10.0, "PAULO RICARDO MACHADO DE CARVALHO": 8.0, "RENATO BARCELLOS GUERREIRO": 6.0, "SOPHIA DE SOUZA CARVALHO": 2.0, "TONNY SANTOS SCATOLIN": 6.0, "TUANNY ARIADNE BARRIONUEVO RODRIGUES": 8.0, "VALBER RAYMUNDO FRANCA": 2.0, "VITORIA SANTOS SCATOLIN": 8.0, "ALINE RODRIGUES FORTES": 9.0, "ANA CLARA TRUDES CORDEIRO": 5.0, "CRISTHIAN ALVES DA CUNHA": 4.0, "DIEGO JUAN CHAVES DA ROCHA": 7.0, "FERNANDO ALVES MORENO": 2.0, "JULLYA OLIVEIRA QUINTANA": 8.0, "LAURA MARQUES": 4.0, "LORRAINE DE MEDEIROS MARQUES": 2.0, "LUAN RENATO INCROCCI DA SILVEIRA": 0.0, "MANOELLY MARTINS FERRARI": 10.0, "MARIA FERNANDA FORTES DOMINGUES": 3.0, "NAIOMI ZWARG FORTES": 5.0, "PABLO HENRY FORTES FERREIRA": 8.0, "PAMELA GABRIELLY RIBEIRO MARCIANO": 10.0, "RAUL FERREIRA DE SOUZA FILHO": 5.0, "VITORIA SILVA ROSSETTO": 0.0, "VIVIANE DA SILVA FERREIRA": 7.0};
+const FILO3_NOTAS = {"ACAUA BRUNO PEREIRA MIRANDA": 10.0, "AILTON GOMES PUPO NETTO": 3.8, "ANNA CAROLINA LOPES BRITO": 6.3, "ARTHUR RIPARI DE ANDRADE": 2.5, "CAMILY LETICIA CHIFARELLI BAPTISTA DA SILVA": 3.8, "HENRIQUE FERREIRA CARNEIRO": 2.5, "ISAIAS RODRIGUES DE SOUZA RIBEIRO": 10.0, "JENNIFER LARA BARBOSA": 3.8, "JO\u00c3O PEDRO MOLINARI SOUZA": 6.3, "JOAO VICTOR DA SILVA MARTINS": 5.0, "KAUA ARTILIA MIRANDA": 10.0, "KAYKE FERREIRA DA SILVA": 1.3, "LUCIANO RODRIGUES MARQUES": 6.3, "MARIA CLARA SOUZA PERES ALVES": 10.0, "MARIA LUIZA SOUZA ROCHA DA SILVA": 0.0, "PABLO BERTHO DE SOUZA": 6.3, "PEDRO HENRIQUE DA SILVA RODRIGUES": 2.5, "RAFAEL RIBEIRO DA SILVA": 3.8, "VITORIA LUIZA DIPOLDI AGUIAR": 10.0};
+const SOC3_NOTAS = {"ANDRESSA VITORIA ARAUJO DE LIMA": 6.0, "DANILO RODRIGUES FORTES": 8.0, "ISABELLY CAROLINE PEDROSO PEREIRA": 2.0, "LUAN TAVARES FLORIDO": 8.0, "LUANY GABRIELLY MARQUES ALVES": 6.0, "MARIA CECILIA LOPES MARTINS": 2.0, "MARIANA VICTORIA ASSIS DE MELLO": 6.0, "MATHEUS ORTEGA CERAVOLO INCROCCI": 2.0, "PAULO RICARDO MACHADO DE CARVALHO": 6.0, "RENATO BARCELLOS GUERREIRO": 4.0, "SOPHIA DE SOUZA CARVALHO": 0.0, "TONNY SANTOS SCATOLIN": 6.0, "TUANNY ARIADNE BARRIONUEVO RODRIGUES": 8.0, "VALBER RAYMUNDO FRANCA": 4.0, "VITORIA SANTOS SCATOLIN": 6.0};
+const ALUNOS_PP3_NOVOS = [{"nome": "FERNANDO ALVES MORENO", "turma": "3\u00aa s\u00e9rie"}];
+const HIST_NOTAS_BIMESTRES = [PP1_NOTAS, PP2_NOTAS, PP3_NOTAS];
+const FILO_NOTAS_BIMESTRES = [FILO_NOTAS, FILO2_NOTAS, FILO3_NOTAS];
+const SOC_NOTAS_BIMESTRES = [SOC_NOTAS, SOC2_NOTAS, SOC3_NOTAS];
 function mediaValores(vals) {
   const validos = vals.filter(v => v !== null && v !== undefined);
   return validos.length ? Math.round(validos.reduce((a,b)=>a+b,0)/validos.length * 100) / 100 : null;
+}
+function alunosPeriodoAtual() {
+  return BIMESTRE_ATUAL === 'media' || BIMESTRE_ATUAL === 2
+    ? [...ALUNOS, ...ALUNOS_PP3_NOVOS] : ALUNOS;
+}
+function rodapePP3(base, nome) {
+  const nota = base[nome] ?? null;
+  return ` · PP3: <strong style="color:${nota !== null ? corSaresp(nota) : 'var(--texto2)'}">${nota !== null ? nota.toFixed(1) : '—'}</strong>`;
 }
 function notasMediaAtual(fontes) {
   const nomes = new Set();
@@ -1391,7 +1403,7 @@ function renderFiloSOC() {
   }
 
   // ── FILOSOFIA 1ª série ──────────────────────────────
-  const filoAlunos = ALUNOS.filter(a => a.turma==='1ª série' && a.nome!=='NAN');
+  const filoAlunos = alunosPeriodoAtual().filter(a => a.turma==='1ª série' && a.nome!=='NAN');
   const filoCards = filoAlunos
     .map(a => ({ nome: a.nome, nota: FILO_ATUAL[a.nome] ?? null }))
     .sort((a,b) => (b.nota ?? -1) - (a.nota ?? -1));
@@ -1405,7 +1417,7 @@ function renderFiloSOC() {
     const evolucao = BIMESTRE_ATUAL === 1 && nota !== null && notaPP1 !== null ? Math.round((nota - notaPP1) * 100) / 100 : null;
     const metaLine = nota === null ? '' :
       BIMESTRE_ATUAL === 'media'
-        ? `<span style="color:var(--texto2);font-size:10px">PP1: <strong style="color:${notaPP1!==null?corSaresp(notaPP1):'var(--texto2)'}">${notaPP1!==null?notaPP1.toFixed(1):'—'}</strong> · PP2: <strong style="color:${notaPP2!==null?corSaresp(notaPP2):'var(--texto2)'}">${notaPP2!==null?notaPP2.toFixed(1):'—'}</strong> · Média: <strong style="color:${cor}">${nota.toFixed(1)}</strong></span>`
+        ? `<span style="color:var(--texto2);font-size:10px">PP1: <strong style="color:${notaPP1!==null?corSaresp(notaPP1):'var(--texto2)'}">${notaPP1!==null?notaPP1.toFixed(1):'—'}</strong> · PP2: <strong style="color:${notaPP2!==null?corSaresp(notaPP2):'var(--texto2)'}">${notaPP2!==null?notaPP2.toFixed(1):'—'}</strong>${rodapePP3(FILO3_NOTAS, nome)} · Média: <strong style="color:${cor}">${nota.toFixed(1)}</strong></span>`
         : evolucao !== null
           ? `<span style="color:${evolucao>=0?'#3db368':'#e24b4a'};font-size:10px">PP1: ${notaPP1.toFixed(1)} · ${evolucao>=0?'+':''}${evolucao.toFixed(1)}</span>`
           : `<span style="color:var(--texto2);font-size:10px">${labelBimestreAtual()} registrado</span>`;
@@ -1426,7 +1438,7 @@ function renderFiloSOC() {
   }).join('');
 
   // ── SOCIOLOGIA 2ª série ─────────────────────────────
-  const socAlunos = ALUNOS.filter(a => a.turma==='2ª série' && a.nome!=='NAN');
+  const socAlunos = alunosPeriodoAtual().filter(a => a.turma==='2ª série' && a.nome!=='NAN');
   const socCards = socAlunos
     .map(a => ({ nome: a.nome, nota: SOC_ATUAL[a.nome] ?? null }))
     .sort((a,b) => (b.nota ?? -1) - (a.nota ?? -1));
@@ -1440,7 +1452,7 @@ function renderFiloSOC() {
     const evolucao = BIMESTRE_ATUAL === 1 && nota !== null && notaPP1 !== null ? Math.round((nota - notaPP1) * 100) / 100 : null;
     const metaLine = nota === null ? '' :
       BIMESTRE_ATUAL === 'media'
-        ? `<span style="color:var(--texto2);font-size:10px">PP1: <strong style="color:${notaPP1!==null?corSaresp(notaPP1):'var(--texto2)'}">${notaPP1!==null?notaPP1.toFixed(1):'—'}</strong> · PP2: <strong style="color:${notaPP2!==null?corSaresp(notaPP2):'var(--texto2)'}">${notaPP2!==null?notaPP2.toFixed(1):'—'}</strong> · Média: <strong style="color:${cor}">${nota.toFixed(1)}</strong></span>`
+        ? `<span style="color:var(--texto2);font-size:10px">PP1: <strong style="color:${notaPP1!==null?corSaresp(notaPP1):'var(--texto2)'}">${notaPP1!==null?notaPP1.toFixed(1):'—'}</strong> · PP2: <strong style="color:${notaPP2!==null?corSaresp(notaPP2):'var(--texto2)'}">${notaPP2!==null?notaPP2.toFixed(1):'—'}</strong>${rodapePP3(SOC3_NOTAS, nome)} · Média: <strong style="color:${cor}">${nota.toFixed(1)}</strong></span>`
         : evolucao !== null
           ? `<span style="color:${evolucao>=0?'#3db368':'#e24b4a'};font-size:10px">PP1: ${notaPP1.toFixed(1)} · ${evolucao>=0?'+':''}${evolucao.toFixed(1)}</span>`
           : `<span style="color:var(--texto2);font-size:10px">${labelBimestreAtual()} registrado</span>`;
@@ -1852,7 +1864,7 @@ function renderAlunos() {
   }
 
   const notasHist = notasHistoriaAtual();
-  const lista = ALUNOS
+  const lista = alunosPeriodoAtual()
     .filter(a => a.turma === tf && a.nome !== 'NAN')
     .sort((a, b) => (notasHist[b.nome] ?? -1) - (notasHist[a.nome] ?? -1));
   if (!lista.length) { document.getElementById('alunos-list').innerHTML = '<div class="empty-filter">Nenhum aluno neste filtro.</div>'; return; }
@@ -1879,7 +1891,7 @@ function renderAlunos() {
     const evolucao = nota !== null && notaAnteriorBase !== null ? Math.round((nota - notaAnteriorBase) * 100) / 100 : null;
     const metaLine = nota === null ? '' :
       BIMESTRE_ATUAL === 'media'
-        ? `<span style="color:var(--texto2);font-size:10px">PP1: <strong style="color:${notaPP1!==null?corSaresp(notaPP1):'var(--texto2)'}">${notaPP1!==null?notaPP1.toFixed(1):'—'}</strong> · PP2: <strong style="color:${notaPP2!==null?corSaresp(notaPP2):'var(--texto2)'}">${notaPP2!==null?notaPP2.toFixed(1):'—'}</strong> · Média: <strong style="color:${cor}">${nota.toFixed(1)}</strong></span>`
+        ? `<span style="color:var(--texto2);font-size:10px">PP1: <strong style="color:${notaPP1!==null?corSaresp(notaPP1):'var(--texto2)'}">${notaPP1!==null?notaPP1.toFixed(1):'—'}</strong> · PP2: <strong style="color:${notaPP2!==null?corSaresp(notaPP2):'var(--texto2)'}">${notaPP2!==null?notaPP2.toFixed(1):'—'}</strong>${rodapePP3(PP3_NOTAS, a.nome)} · Média: <strong style="color:${cor}">${nota.toFixed(1)}</strong></span>`
         : evolucao !== null
           ? `<span style="color:${evolucao>=0?'#3db368':'#e24b4a'};font-size:10px">PP1: ${notaAnteriorBase.toFixed(1)} · ${evolucao>=0?'+':''}${evolucao.toFixed(1)}</span>`
           : `<span style="color:var(--texto2);font-size:10px">${labelBimestreAtual()} registrado</span>`;
